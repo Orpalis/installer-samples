@@ -1,0 +1,42 @@
+﻿<Window x:Class="DocumentViewer.wndPrint"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Print" Height="330" Width="570" Loaded="Window_Loaded">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <Label Content="Printer" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Copies" HorizontalAlignment="Left" Margin="16,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="Print size" HorizontalAlignment="Left" Margin="16,67,0,0" VerticalAlignment="Top"/>
+        <Label Content="Alignment" HorizontalAlignment="Left" Margin="16,98,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Orientation" HorizontalAlignment="Left" Height="95" Margin="16,129,0,0" VerticalAlignment="Top" Width="204">
+            <Grid Width="Auto" Height="Auto">
+                <RadioButton Name="rbOrientationAutomatic" Content="Automatic" HorizontalAlignment="Left" IsChecked="True" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rbOrientationPortrait" Content="Portrait" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rbOrientationLandscape" Content="Landscape" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Page range" HorizontalAlignment="Left" Height="95" Margin="238,129,0,0" VerticalAlignment="Top" Width="275">
+            <Grid HorizontalAlignment="Left" Height="73" VerticalAlignment="Top" Width="263">
+                <RadioButton Name="rbPageRangeAll" Content="All" IsChecked="True" HorizontalAlignment="Left" Margin="11,9,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rbPageRangeCurrent" Content="Current page" HorizontalAlignment="Left" Margin="144,10,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rbPageRangeSelection" IsEnabled="False" Content="Checked pages" HorizontalAlignment="Left" Margin="11,29,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rbPageRangePages" Content="Pages from" HorizontalAlignment="Left" Margin="11,48,0,0" VerticalAlignment="Top"/>
+                <Label Content="to" HorizontalAlignment="Left" Margin="153,42,0,0" VerticalAlignment="Top"/>
+                <TextBox Name="txtPageRangeStart" HorizontalAlignment="Left" Height="19" Margin="95,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="53"
+                         IsEnabled="{Binding IsChecked, ElementName=rbPageRangePages, Mode=OneWay}"/>
+                <TextBox Name="txtPageRangeEnd" HorizontalAlignment="Left" Height="19" Margin="179,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="53"
+                         IsEnabled="{Binding IsChecked, ElementName=rbPageRangePages, Mode=OneWay}"/>
+            </Grid>
+        </GroupBox>
+        <ComboBox Name="cmbPrinterList" HorizontalAlignment="Left" Height="22" Margin="135,14,0,0" VerticalAlignment="Top" Width="273" SelectionChanged="cmbPrinterList_SelectionChanged"/>
+        <ComboBox Name="cmbPrintAlignment" HorizontalAlignment="Left" Height="22" Margin="135,98,0,0" VerticalAlignment="Top" Width="187"/>
+        <ComboBox Name="cmbPrintSize" HorizontalAlignment="Left" Height="22" Margin="135,67,0,0" VerticalAlignment="Top" Width="187"/>
+        <Button Name="btnPrinterProperties" Content="Properties" HorizontalAlignment="Left" Height="22" Margin="413,14,0,0" VerticalAlignment="Top" Width="100" Click="btnPrinterProperties_Click"/>
+        <TextBox x:Name="numCopies" HorizontalAlignment="Left" VerticalAlignment="top" Text="1" Height="20" Width="50" Margin="135,42,357,217" TextChanged="numCopies_TextChanged" />
+        <Button x:Name="numCopiesUp" HorizontalAlignment="Left"  VerticalAlignment="top" Content="˄" Width="20" Height="20" Margin="185,42,337,217" Click="numCopiesUp_Click"   />
+        <Button x:Name="numCopiesDown" HorizontalAlignment="Left" VerticalAlignment="top"  Content="˅" Width="20"  Height="20" Margin="205,42,317,217" Click="numCopiesDown_Click" />
+        <CheckBox Name="chkCollate" Content="Collate" HorizontalAlignment="Left" Margin="238,44,0,0" VerticalAlignment="Top"/>
+        <Button Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Height="20" Margin="435,240,0,0" VerticalAlignment="Top" Width="78" Click="btnCancel_Click"/>
+        <Button Name="btnPrint" Content="Print" HorizontalAlignment="Left" Height="20" Margin="352,240,0,0" VerticalAlignment="Top" Width="78" Click="btnPrint_Click"/>
+
+    </Grid>
+</Window>

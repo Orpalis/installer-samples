@@ -1,0 +1,19 @@
+{
+  "name": "docuvieware-client",
+  "version": "0.0.1",
+  "description": "An electron sample of a DocuVieware control",
+  "main": "app/server.js",
+  "scripts": {
+    "start": "electron . --trace-warnings --debug",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Orpalis",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.1.7"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "electron-fetch": "^1.7.3"
+  }
+}

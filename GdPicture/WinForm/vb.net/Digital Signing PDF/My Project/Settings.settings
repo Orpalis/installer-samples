@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="certPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="certPass" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="stamPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="certLevel" Type="GdPicture14.PdfSignatureCertificationLevel" Scope="User">
+      <Value Profile="(Default)">NotCertified</Value>
+    </Setting>
+    <Setting Name="hash" Type="GdPicture14.PdfSignatureHash" Scope="User">
+      <Value Profile="(Default)">SHA256</Value>
+    </Setting>
+    <Setting Name="mode" Type="GdPicture14.PdfSignatureMode" Scope="User">
+      <Value Profile="(Default)">PdfSignatureModeAdobePPKMS</Value>
+    </Setting>
+    <Setting Name="tsServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="tsUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="tsPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="signerName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ORPALIS</Value>
+    </Setting>
+    <Setting Name="reason" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Important PDF</Value>
+    </Setting>
+    <Setting Name="location" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Toulouse (France)</Value>
+    </Setting>
+    <Setting Name="contact" Type="System.String" Scope="User">
+      <Value Profile="(Default)">contact@orpalis.com</Value>
+    </Setting>
+    <Setting Name="validMark" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="linearize" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

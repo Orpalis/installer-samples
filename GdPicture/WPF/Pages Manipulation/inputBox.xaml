@@ -1,0 +1,12 @@
+﻿<Window x:Class="Csharp_Pages_Manipulation.WPF.inputBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Password..." Height="210.662" Width="300" >
+    <Grid Background="LightGray">
+        <Label Content="Enter Password:" HorizontalAlignment="Left" Height="28" Margin="32,39,0,0" VerticalAlignment="Top" Width="150"/>
+        <TextBox HorizontalAlignment="Left" Name="txtPassword" Height="23" Margin="32,72,0,0"  Text="" VerticalAlignment="Top" Width="214"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="32,115,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="134,115,0,0" VerticalAlignment="Top" Width="112" Click="Button_Click"/>
+
+    </Grid>
+</Window>

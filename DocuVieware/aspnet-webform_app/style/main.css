@@ -1,0 +1,54 @@
+﻿body {
+    color:#134150;
+}
+
+#navigation .example {
+    position: relative;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box
+}
+
+#navigation .example a {
+    position: relative;
+}
+
+#navigation .layer {
+    border-top: 3px solid #26A5BE;
+    background-color:rgba(235, 237, 239,0.8);
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:33%;
+    color:#134150;
+}
+
+#navigation .example img {
+    opacity:0.5;
+}
+
+#navigation .example:hover img {
+    opacity:1;
+}
+
+#navigation .example:hover h2, #navigation .example:hover p {
+    text-shadow: 1px 1px 2px #c3c3c3;
+}
+
+#navigation .example:hover .layer {
+    background-color:rgba(235, 237, 239,0.6);
+}
+
+#navigation .layer .layer_hover {
+    background-color:#26A5BE;
+    position:absolute;
+    top:0;
+    right:0;
+    width:15%;
+    height:100%;
+    fill:#FFFFFF;
+    display:none;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box
+}

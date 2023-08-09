@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DocuVieware - Standalone Viewer Demo.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script src="~/Scripts/jquery-3.1.0.min.js"></script>
+    <link href="~/Content/standalone.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    @{
+        GdPicture14.WEB.DocuVieware docuVieware = new GdPicture14.WEB.DocuVieware
+        {
+            ID = "DocuVieware1",
+            Timeout = MvcApplication.SESSION_TIMEOUT,
+            Height = new System.Web.UI.WebControls.Unit("100%"),
+            Width = new System.Web.UI.WebControls.Unit("100%"),
+            SinglePageView = false,
+            ForceScrollBars = false,
+            AllowedExportFormats = "*",
+            MaxUploadSize = 52428800,
+            CollapsedSnapIn = true,
+            EnableMouseModeButtons = false,
+            EnableFormFieldsEdition = true
+        };
+        docuVieware.RenderControl(Output);
+        docuVieware.Dispose();
+    }
+</body>
+</html>

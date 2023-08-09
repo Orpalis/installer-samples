@@ -1,0 +1,41 @@
+﻿@page "/viewer"
+
+@using docuviewareBlazorDemo;
+@using System.IO;
+@using GdPicture14.WEB;
+@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+
+<html style="height: 100%">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DocuVieware Core - Standalone Viewer Demo.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body style="overflow: hidden; margin: 0;height: 100%;">
+
+    <div style="width: 100%; height: 100%;">
+        @{
+            string clientID = "DocuVieware1";
+            using (GdPicture14.WEB.DocuViewareControl docuVieware = new DocuViewareControl(Globals.BuildDocuViewareControlSessionID(HttpContextAccessor.HttpContext, clientID), clientID, Globals.SESSION_TIMEOUT)
+            {
+                Locale = Globals.GetDocuViewareLocale(HttpContextAccessor.HttpContext.Request),
+                Height = "100%",
+                Width = "100%",
+                DisableAnnotationDrawingModePanel = true,
+                ForceScrollBars = false,
+                AllowedExportFormats = "*",
+                MaxUploadSize = 52428800,
+                EnableFormFieldsEdition = true
+            })
+            {
+                docuVieware.LoadFromStream(new FileStream(System.IO.Path.Combine(Globals.GetDocumentsDirectory(), "st_exupery_le_petit_prince.pdf"), FileMode.Open, FileAccess.Read), true, "st_exupery_le_petit_prince.pdf");
+                docuVieware.RenderControl(Output);
+            }
+        }
+    </div>
+</body>
+</html>

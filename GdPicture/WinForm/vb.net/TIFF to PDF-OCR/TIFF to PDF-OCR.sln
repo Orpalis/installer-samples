@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TIFF to PDF-OCR", "TIFF to PDF-OCR.vbproj", "{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Debug|x64.ActiveCfg = Debug|x64
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Debug|x64.Build.0 = Debug|x64
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Debug|x86.ActiveCfg = Debug|x86
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Debug|x86.Build.0 = Debug|x86
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Release|x64.ActiveCfg = Release|x64
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Release|x64.Build.0 = Release|x64
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Release|x86.ActiveCfg = Release|x86
+		{FA6EDEDE-4873-434B-88B2-3F06F00FF45B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {082C6C1B-EC12-438A-83F9-BEC0985A3736}
+	EndGlobalSection
+EndGlobal

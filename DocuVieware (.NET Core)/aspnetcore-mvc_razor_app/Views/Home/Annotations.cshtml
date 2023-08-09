@@ -1,0 +1,54 @@
+﻿@using System.IO;
+@using DocuViewareCoreDemo;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DocuVieware - Annotations Demo.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/css/annotations.css" rel="stylesheet" type="text/css" />
+    <script src="~/js/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+    @{
+        using (GdPicture14.WEB.DocuViewareControl docuVieware = new GdPicture14.WEB.DocuViewareControl(@ViewBag.SessionID, "DocuVieware1", Globals.SESSION_TIMEOUT)
+        {
+            Locale = @ViewBag.Locale,
+            Height = "100%",
+            Width = "100%",
+            DisableAnnotationDrawingModePanel = true,
+            ForceScrollBars = false,
+            AllowedExportFormats = "*",
+            MaxUploadSize = 52428800,
+            EnableMultipleThumbnailSelection = false,
+            EnableTwainAcquisitionButton = false,
+            EnableFormFieldsEdition = true
+        })
+        {
+            docuVieware.LoadFromStream(new FileStream(Globals.GetDocumentsDirectory() + @"\st_exupery_le_petit_prince.pdf", FileMode.Open, FileAccess.Read), true, "st_exupery_le_petit_prince.pdf");
+            docuVieware.RenderControl(Output);
+        }
+    }
+    <script>
+
+        function RegisterOnNewDocumentLoadedOnDocuViewareAPIReady() {
+            if (typeof DocuViewareAPI !== "undefined" && DocuViewareAPI.IsInitialized("DocuVieware1")) {
+                DocuViewareAPI.RegisterOnNewDocumentLoaded("DocuVieware1", function () { DocuViewareAPI.SelectAnnotationsSnapIn('DocuVieware1'); });
+            }
+            else {
+                setTimeout(function () { RegisterOnNewDocumentLoadedOnDocuViewareAPIReady() }, 10);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            RegisterOnNewDocumentLoadedOnDocuViewareAPIReady();
+        }, false);
+
+    </script>
+</body>
+</html>

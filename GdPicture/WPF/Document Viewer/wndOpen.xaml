@@ -1,0 +1,39 @@
+﻿<Window x:Class="DocumentViewer.wndOpen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Open" Height="370" Width="540" UseLayoutRounding="True">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <Image HorizontalAlignment="Left" Height="20" Margin="7,12,0,0"  RenderOptions.BitmapScalingMode="HighQuality" Source="resources/file.png" VerticalAlignment="Top" Width="20"/>
+        <RadioButton Name="rbOpenFromFile" Content="Open from file" IsChecked="True" HorizontalAlignment="Left" Margin="32,17,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="tbFile" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="7,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415" 
+                 IsEnabled="{Binding IsChecked, ElementName=rbOpenFromFile, Mode=OneWay}"/>
+        <Button Name="btnOpenFromFile" Click="btnOpenFromFile_Click" Content="Browse..." HorizontalAlignment="Left" Margin="427,37,0,0" VerticalAlignment="Top" Width="75"
+                IsEnabled="{Binding IsChecked, ElementName=rbOpenFromFile, Mode=OneWay}"/>
+        <Image HorizontalAlignment="Left" Height="20" Margin="10,74,0,0"  RenderOptions.BitmapScalingMode="HighQuality" Source="resources/internet.png" VerticalAlignment="Top" Width="20"/>
+        <RadioButton x:Name="rbOpenFromHTTP" Content="Open from HTTP" HorizontalAlignment="Left" Margin="35,79,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbOpenFromHTTP" Text="http://nssdcftp.gsfc.nasa.gov/photo_gallery/hi-res/planetary/jupiter/hst_jupiter_9929a1.tiff" HorizontalAlignment="Left" Height="20" Margin="10,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="492"
+                 IsEnabled="{Binding IsChecked, ElementName=rbOpenFromHTTP, Mode=OneWay}"/>
+        <RadioButton x:Name="rbOpenFromFTP" Content="Open from FTP" HorizontalAlignment="Left" Margin="35,143,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbHost" Text="ftp://download.intel.com"  HorizontalAlignment="Left" Height="20" Margin="54,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="344"
+                 IsEnabled="{Binding IsChecked, ElementName=rbOpenFromFTP, Mode=OneWay}"/>
+        <Image HorizontalAlignment="Left" Height="20" Margin="10,138,0,0"  RenderOptions.BitmapScalingMode="HighQuality" Source="resources/ftp.png" VerticalAlignment="Top" Width="20"/>
+        <TextBox x:Name="tbPath" Text="/design/processor/datashts/325567.pdf" HorizontalAlignment="Left" Height="20" Margin="54,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448"
+                 IsEnabled="{Binding IsChecked, ElementName=rbOpenFromFTP, Mode=OneWay}"/>
+        <TextBox x:Name="tbLogin" Text="Anonymous" HorizontalAlignment="Left" Height="20" Margin="54,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205"
+                 IsEnabled="{Binding IsChecked, ElementName=rbOpenFromFTP, Mode=OneWay}"/>
+        <TextBox x:Name="tbPort" Text="21" HorizontalAlignment="Left" Height="20" Margin="440,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62"
+                 IsEnabled="{Binding IsChecked, ElementName=rbOpenFromFTP, Mode=OneWay}"/>
+        <Label Content="Host" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="29"/>
+        <Label Content="Path" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top" Height="29"/>
+        <Label Content="Login" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" Height="29"/>
+        <Label Content="Port" HorizontalAlignment="Left" Margin="403,159,0,0" VerticalAlignment="Top" Height="29"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="264,218,0,0" VerticalAlignment="Top" Height="29"/>
+        <PasswordBox Name="tbPassword" Password="Anonymous" HorizontalAlignment="Left" Height="20" Margin="338,223,0,0" VerticalAlignment="Top" Width="164"
+                     IsEnabled="{Binding IsChecked, ElementName=rbOpenFromFTP, Mode=OneWay}"/>
+        <RadioButton x:Name="rbOpenFromClipboard" Content="Open from Clipboard" HorizontalAlignment="Left" Margin="35,274,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="20" Margin="10,269,0,0"  RenderOptions.BitmapScalingMode="HighQuality" Source="resources/clipboard.png" VerticalAlignment="Top" Width="20"/>
+        <Button Name="btnOpen" Content="Open"  HorizontalAlignment="Left" Height="22" Margin="338,294,0,0" VerticalAlignment="Top" Width="75" Click="btnOpen_Click"/>
+        <Button Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Height="22" Margin="427,294,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click"/>
+
+    </Grid>
+</Window>

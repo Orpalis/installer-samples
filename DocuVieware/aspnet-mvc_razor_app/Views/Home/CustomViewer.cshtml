@@ -1,0 +1,708 @@
+﻿@using GdPicture14
+@using GdPicture14.WEB
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="height: 100%;">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DocuVieware - Custom Viewer Demo.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-3.1.0.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/custom_viewer.js"></script>
+    <script src="~/Scripts/colpick.js"></script>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/demos.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/custom_viewer.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/colpick.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="padding-top: 0">
+    <div id="header">
+        <div id="logo-header">
+            <a href="/">
+                <img src="../../Images/docuvieware-logo-home-x2.png" width="310" height="50" class="logo" alt="" />
+            </a>
+        </div>
+        <div id="header-desc">
+            <h1>Universal HTML5 Viewer and Document Management Kit</h1>
+            <p class="version">
+                Custom Viewer Demo • Version: @ViewBag.Version
+            </p>
+        </div>
+    </div>
+    <div>
+        <nav id="navigation" role="navigation">
+            <div class="toggle-button navigation-close">
+                <i>
+                    <svg width="24" height="24" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path d="M 257.54,64.00C 92.994,64.00,0.00,173.352,0.00,253.347c0.00,121.887, 109.354,190.477, 200.308,212.956 C 291.27,488.791, 325.48,447.538, 324.022,400.00c-1.771-57.75, 27.073-58.496, 47.52-56.459C 391.973,345.592, 512.00,373.305, 512.00,281.326 C 512.00,167.50, 422.072,64.00, 257.54,64.00z M 224.00,96.00c 17.673,0.00, 32.00,14.327, 32.00,32.00s-14.327,32.00-32.00,32.00s-32.00-14.327-32.00-32.00S 206.327,96.00, 224.00,96.00z M 80.00,288.246c-8.973,0.00-16.246-7.273-16.246-16.246S 71.027,255.754, 80.00,255.754S 96.246,263.027, 96.246,272.00S 88.973,288.246, 80.00,288.246z M 128.00,224.00c-17.673,0.00-32.00-14.327-32.00-32.00s 14.327-32.00, 32.00-32.00s 32.00,14.327, 32.00,32.00S 145.673,224.00, 128.00,224.00z M 256.00,352.00c-35.346,0.00-64.00-21.49-64.00-48.00 s 28.654-48.00, 64.00-48.00c 35.347,0.00, 64.00,21.49, 64.00,48.00S 291.347,352.00, 256.00,352.00z M 368.00,224.00c-26.51,0.00-48.00-21.49-48.00-48.00s 21.49-48.00, 48.00-48.00s 48.00,21.49, 48.00,48.00 S 394.51,224.00, 368.00,224.00z"></path>
+                    </svg>
+                </i>
+            </div>
+            <div class="toggle-button navigation-open">
+                <i>
+                    <svg width="24" height="24" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path d="M 257.54,64.00C 92.994,64.00,0.00,173.352,0.00,253.347c0.00,121.887, 109.354,190.477, 200.308,212.956 C 291.27,488.791, 325.48,447.538, 324.022,400.00c-1.771-57.75, 27.073-58.496, 47.52-56.459C 391.973,345.592, 512.00,373.305, 512.00,281.326 C 512.00,167.50, 422.072,64.00, 257.54,64.00z M 224.00,96.00c 17.673,0.00, 32.00,14.327, 32.00,32.00s-14.327,32.00-32.00,32.00s-32.00-14.327-32.00-32.00S 206.327,96.00, 224.00,96.00z M 80.00,288.246c-8.973,0.00-16.246-7.273-16.246-16.246S 71.027,255.754, 80.00,255.754S 96.246,263.027, 96.246,272.00S 88.973,288.246, 80.00,288.246z M 128.00,224.00c-17.673,0.00-32.00-14.327-32.00-32.00s 14.327-32.00, 32.00-32.00s 32.00,14.327, 32.00,32.00S 145.673,224.00, 128.00,224.00z M 256.00,352.00c-35.346,0.00-64.00-21.49-64.00-48.00 s 28.654-48.00, 64.00-48.00c 35.347,0.00, 64.00,21.49, 64.00,48.00S 291.347,352.00, 256.00,352.00z M 368.00,224.00c-26.51,0.00-48.00-21.49-48.00-48.00s 21.49-48.00, 48.00-48.00s 48.00,21.49, 48.00,48.00 S 394.51,224.00, 368.00,224.00z"></path>
+                    </svg>
+                </i>
+            </div>
+            @using (Html.BeginForm("CustomViewer", "Home"))
+            {
+                <div class="pas line" id="container">
+                    <p class="style-title">Styling Options</p>
+                    <input type="hidden" name="toolbar_backcolor" value="@ViewBag.ToolbarBackColor" />
+                    <input type="hidden" name="viewer_backcolor" value="@ViewBag.ViewerBackColor" />
+                    <input type="hidden" name="stroke_color" value="@ViewBag.StrokeColor" />
+                    <input type="hidden" name="misc_border_color" value="@ViewBag.MiscBorderColor" />
+                    <input type="hidden" name="header_color" value="@ViewBag.HeaderColor" />
+                    <input type="hidden" name="panel_backcolor" value="@ViewBag.PanelBackColor" />
+                    <input type="hidden" name="active_selected_color" value="@ViewBag.ActiveSelectedColor" />
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#sectionBehavior">Behavior</a></li>
+                        <li><a data-toggle="tab" href="#sectionB">Color & Size</a></li>
+                        <li><a data-toggle="tab" href="#sectionA">Elements</a></li>
+                        <li><a data-toggle="tab" href="#sectionAnnotations">Annotations</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="sectionBehavior" class="tab-pane active">
+                            <div class="line mts pts pls spacer">
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.CollapsedSnapIn)
+                                        {
+                                            <input type="checkbox" name="collapsed_snapin" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="collapsed_snapin" />
+                                        }Snap-in collapsed
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    Snap-in&nbsp;width:&nbsp;<input type="text" name="snapin_width" class="input_dimensions input_thumbnail_dimensions" maxlength="3" value="@ViewBag.SnapInPanelDefaultWidth">&nbsp;pixels
+                                </div>
+                            </div>
+                            <div class="line mts pts pls spacer">
+                                <div class="line">
+                                    <label>
+                                        Document alignement:
+                                        <select name="document_alignement" id="document_alignement">
+                                            <option selected=@(ViewBag.DocumentAlignment.ToString() == ViewerDocumentAlignment.DocumentAlignmentBottomCenter.ToString()) value="9">Bottom center</option>
+                                            <option selected=@(ViewBag.DocumentAlignment.ToString() == ViewerDocumentAlignment.DocumentAlignmentBottomLeft.ToString()) value="7">Bottom left</option>
+                                            <option selected=@(ViewBag.DocumentAlignment.ToString() == ViewerDocumentAlignment.DocumentAlignmentBottomRight.ToString()) value="8">Bottom right</option>
+                                            <option selected=@(ViewBag.DocumentAlignment.ToString() == ViewerDocumentAlignment.DocumentAlignmentMiddleCenter.ToString()) value="2">Middle center</option>
+                                            <option selected=@(ViewBag.DocumentAlignment.ToString() == ViewerDocumentAlignment.DocumentAlignmentMiddleLeft.ToString()) value="0">Middle left</option>
+                                            <option selected=@(ViewBag.DocumentAlignment.ToString() == ViewerDocumentAlignment.DocumentAlignmentMiddleRight.ToString()) value="1">Middle right</option>
+                                            <option selected=@(ViewBag.DocumentAlignment.ToString() == ViewerDocumentAlignment.DocumentAlignmentTopCenter.ToString()) value="6">Top center</option>
+                                            <option selected=@(ViewBag.DocumentAlignment.ToString() == ViewerDocumentAlignment.DocumentAlignmentTopLeft.ToString()) value="4">Top left</option>
+                                            <option selected=@(ViewBag.DocumentAlignment.ToString() == ViewerDocumentAlignment.DocumentAlignmentTopRight.ToString()) value="5">Top right</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label>
+                                        Document position:
+                                        <select name="document_position" id="document_position">
+                                            <option selected=@(ViewBag.DocumentPosition.ToString() == ViewerDocumentPosition.DocumentPositionBottomCenter.ToString()) value="9">Bottom center</option>
+                                            <option selected=@(ViewBag.DocumentPosition.ToString() == ViewerDocumentPosition.DocumentPositionBottomLeft.ToString()) value="7">Bottom left</option>
+                                            <option selected=@(ViewBag.DocumentPosition.ToString() == ViewerDocumentPosition.DocumentPositionBottomRight.ToString()) value="8">Bottom right</option>
+                                            <option selected=@(ViewBag.DocumentPosition.ToString() == ViewerDocumentPosition.DocumentPositionMiddleCenter.ToString()) value="2">Middle center</option>
+                                            <option selected=@(ViewBag.DocumentPosition.ToString() == ViewerDocumentPosition.DocumentPositionMiddleLeft.ToString()) value="0">Middle left</option>
+                                            <option selected=@(ViewBag.DocumentPosition.ToString() == ViewerDocumentPosition.DocumentPositionMiddleRight.ToString()) value="1">Middle right</option>
+                                            <option selected=@(ViewBag.DocumentPosition.ToString() == ViewerDocumentPosition.DocumentPositionTopCenter.ToString()) value="6">Top center</option>
+                                            <option selected=@(ViewBag.DocumentPosition.ToString() == ViewerDocumentPosition.DocumentPositionTopLeft.ToString()) value="4">Top left</option>
+                                            <option selected=@(ViewBag.DocumentPosition.ToString() == ViewerDocumentPosition.DocumentPositionTopRight.ToString()) value="5">Top right</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="line mts pts pls spacer">
+                                <div class="line">
+                                    <label>
+                                        Page preload mode:
+                                        <select name="page_preload" id="page_preload">
+                                            <option selected=@(ViewBag.PagePreload.ToString() == PagePreloadMode.AdjacentPages.ToString()) value="0">Adjacent pages</option>
+                                            <option selected=@(ViewBag.PagePreload.ToString() == PagePreloadMode.AllPages.ToString()) value="1">All pages</option>
+                                            <option selected=@(ViewBag.PagePreload.ToString() == PagePreloadMode.VisiblePages.ToString()) value="2">Visible page</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="line mts pts pls spacer">
+                                <div class="line">
+                                    <label>
+                                        Viewer rotation:
+                                        <select name="viewer_rotation" id="viewer_rotation">
+                                            <option selected=@(ViewBag.ViewerRotation.ToString() == GdPictureRotateFlipType.GdPictureRotate180FlipNone.ToString()) value="0">180°</option>
+                                            <option selected=@(ViewBag.ViewerRotation.ToString() == GdPictureRotateFlipType.GdPictureRotate270FlipNone.ToString()) value="1">270°</option>
+                                            <option selected=@(ViewBag.ViewerRotation.ToString() == GdPictureRotateFlipType.GdPictureRotate90FlipNone.ToString()) value="2">90°</option>
+                                            <option selected=@(ViewBag.ViewerRotation.ToString() == GdPictureRotateFlipType.GdPictureRotateNoneFlipNone.ToString()) value="3">No rotation flip none</option>
+                                            <option selected=@(ViewBag.ViewerRotation.ToString() == GdPictureRotateFlipType.GdPictureRotateNoneFlipX.ToString()) value="4">No rotation flip X</option>
+                                            <option selected=@(ViewBag.ViewerRotation.ToString() == GdPictureRotateFlipType.GdPictureRotateNoneFlipY.ToString()) value="5">No rotation flip Y</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sectionA" class="tab-pane">
+                            <div class="line mts pts pls spacer">
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.ShowThumbnailsSnapin)
+                                        {
+                                            <input type="checkbox" name="show_thumbnails" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="show_thumbnails" />
+                                        }Show thumbnails snap-in
+                                    </label>
+                                </div>
+                                <div class="line mls" id="enable_multiple_select_div">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableMultiselect)
+                                        {
+                                            <input type="checkbox" name="enable_multiple_select" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="enable_multiple_select" />
+                                        }Enable multiple selection
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.ShowSearchSnapin)
+                                        {
+                                            <input type="checkbox" name="show_search" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="show_search" />
+                                        }Show text search snap-in
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.ShowAnnotationsSnapin)
+                                        {
+                                            <input type="checkbox" name="show_annotations" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="show_annotations" />
+                                        }Show annotations snap-in
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.ShowBookmarksSnapin)
+                                        {
+                                            <input type="checkbox" name="show_bookmarks" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="show_bookmarks" />
+                                        }Show bookmarks snap-in
+                                    </label>
+                                </div>
+                                <div class="line mini-spacer">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.ShowToolbar)
+                                        {
+                                            <input type="checkbox" name="show_toolbar" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="show_toolbar" />
+                                        }Show toolbar
+                                    </label>
+                                </div>
+                                <div id="toolbar_buttons" class="mls">
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowUploadButton)
+                                            {
+                                                <input type="checkbox" name="show_uploadfile" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_uploadfile" />
+                                            }Show upload file button
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowLoadFromURIButton)
+                                            {
+                                                <input type="checkbox" name="show_loadfromuri" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_loadfromuri" />
+                                            }Show load from URI button
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowSaveButton)
+                                            {
+                                                <input type="checkbox" name="show_save" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_save" />
+                                            }Show save button
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowPrintButton)
+                                            {
+                                                <input type="checkbox" name="show_print" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_print" />
+                                            }Show print button
+                                        </label>
+                                    </div>
+                                    <div class="line mls" id="print_quality_div">
+                                        <label>
+                                            Print quality:
+                                            <select name="print_quality" id="print_quality">
+                                                <option selected=@(ViewBag.PrintQuality.ToString() == GdPicture14.WEB.PrintQuality.High.ToString()) value="1">High</option>
+                                                <option selected=@(ViewBag.PrintQuality.ToString() == GdPicture14.WEB.PrintQuality.Low.ToString()) value="2">Low</option>
+                                                <option selected=@(ViewBag.PrintQuality.ToString() == GdPicture14.WEB.PrintQuality.Medium.ToString()) value="3">Medium</option>
+                                                <option selected=@(ViewBag.PrintQuality.ToString() == GdPicture14.WEB.PrintQuality.VeryHigh.ToString()) value="4">Very High</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowPageNavigation)
+                                            {
+                                                <input type="checkbox" name="show_page_nav" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_page_nav" />
+                                            }Show pages navigation buttons
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowZoomButtons)
+                                            {
+                                                <input type="checkbox" name="show_zoom" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_zoom" />
+                                            }Show zoom buttons
+                                        </label>
+                                    </div>
+                                    <div class="line mls" id="zoom_step_div">
+                                        <label>
+                                            Zoom step:
+                                            <input type="text" name="zoom_step" class="input_dimensions input_control_dimensions" maxlength="3" value="@ViewBag.ZoomStep">
+                                            %
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowRotate)
+                                            {
+                                                <input type="checkbox" name="show_rotate" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_rotate" />
+                                            }Show rotate buttons
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowPageViewToggle)
+                                            {
+                                                <input type="checkbox" name="show_single_page" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_single_page" />
+                                            }Show page view toggle button
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowFitWidth)
+                                            {
+                                                <input type="checkbox" name="show_fit_width" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_fit_width" />
+                                            }Show fit width button
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowFitPage)
+                                            {
+                                                <input type="checkbox" name="show_fit_page" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_fit_page" />
+                                            }Show fit page button
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowZoom100)
+                                            {
+                                                <input type="checkbox" name="show_zoom_100" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_zoom_100" />
+                                            }Show zoom 100% button
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowMouseMode)
+                                            {
+                                                <input type="checkbox" name="show_mouse_mode" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_mouse_mode" />
+                                            }Show mouse modes buttons
+                                        </label>
+                                    </div>
+                                    <div class="line">
+                                        <label class="mtn">
+                                            @if ((bool)ViewBag.ShowFullscreen)
+                                            {
+                                                <input type="checkbox" name="show_fullscreen" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" name="show_fullscreen" />
+                                            }Show fullscreen button
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sectionB" class="tab-pane">
+                            <div class="line mts pts pls spacer">
+                                <div class="line">
+                                    Toolbar&nbsp;height:&nbsp;<input type="text" name="toolbar_height" class="input_dimensions input_toolbar_dimensions" maxlength="3" value="@ViewBag.ToolbarHeight">&nbsp;pixels
+                                </div>
+                                <div class="line mts">
+                                    Buttons&nbsp;spacing:&nbsp;<input type="text" name="toolbar_button_spacing" class="input_dimensions input_toolbar_dimensions" maxlength="2" value="@ViewBag.ButtonSpacing">&nbsp;pixels
+                                </div>
+                            </div>
+                            <div class="line mts pts pls spacer">
+                                <div class="line" id="toolbar_bgcolor">
+                                    <div class="color-box start" data-hidden_val="toolbar_backcolor"></div>
+                                    <div class="mod">Toolbar base color</div>
+                                </div>
+                                <div class="line">
+                                    <div class="color-box start" data-hidden_val="viewer_backcolor"></div>
+                                    <div class="mod">Viewer background color</div>
+                                </div>
+                                <div class="line">
+                                    <div class="color-box start" data-hidden_val="stroke_color"></div>
+                                    <div class="mod">Stroke color</div>
+                                </div>
+                                <div class="line">
+                                    <div class="color-box start" data-hidden_val="misc_border_color"></div>
+                                    <div class="mod">Misc border color</div>
+                                </div>
+                                <div class="line">
+                                    <div class="color-box start" data-hidden_val="header_color"></div>
+                                    <div class="mod">Header color</div>
+                                </div>
+                                <div class="line">
+                                    <div class="color-box start" data-hidden_val="panel_backcolor"></div>
+                                    <div class="mod">Panel backcolor</div>
+                                </div>
+                                <div class="line">
+                                    <div class="color-box start" data-hidden_val="active_selected_color"></div>
+                                    <div class="mod">Active selected color</div>
+                                </div>
+                            </div>
+                            <div class="line mts pts pls spacer">
+                                <div class="line">
+                                    Control&nbsp;size:&nbsp;<input type="text" name="control_width" class="input_dimensions input_control_dimensions" maxlength="4" value="@ViewBag.ControlWidth">
+                                    &nbsp;&times;&nbsp;<input type="text" name="control_height" class="input_dimensions input_control_dimensions" maxlength="4" value="@ViewBag.ControlHeight">
+                                    &nbsp;pixels
+                                </div>
+                                <div class="line mts" id="thumbnail_dimensions">
+                                    Thumbnail&nbsp;size:&nbsp;<input type="text" name="thumbnail_width" class="input_dimensions input_thumbnail_dimensions" maxlength="3" value="@ViewBag.ThumbnailsWidth">
+                                    &nbsp;&times;&nbsp;<input type="text" name="thumbnail_height" class="input_dimensions input_thumbnail_dimensions" maxlength="3" value="@ViewBag.ThumbnailsHeight">
+                                    &nbsp;pixels
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sectionAnnotations" class="tab-pane">
+                            <div class="line mts pts pls spacer">
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.AnnotationDropShadow)
+                                        {
+                                            <input type="checkbox" name="annotation_drop_shadow" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_drop_shadow" />
+                                        }Annotation drop shadow
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.ContinuousDrawingMode)
+                                        {
+                                            <input type="checkbox" name="annotation_continious_mode" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_continious_mode" />
+                                        }Freehand continious mode
+                                    </label>
+                                </div>
+                                <div class="line spacer">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableRectangleHighlighterAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_highlighter" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_highlighter" />
+                                        }Show highlighter button
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableFreehandHighlighterAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_freehand_highlighter" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_freehand_highlighter" />
+                                        }Show freehand highlighter button
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableRubberStampAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_rubber_stamp" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_rubber_stamp" />
+                                        }Show rubber stamp button
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableRectangleAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_rectangle" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_rectangle" />
+                                        }Show rectangle button
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableEllipseAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_cricle" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_cricle" />
+                                        }Show circle button
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableLineAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_line" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_line" />
+                                        }Show line button
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableConnectedLineAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_connected_line" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_connected_line" />
+                                        }Show connected line button
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableFreehandAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_freehand" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_freehand" />
+                                        }Show freehand button
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableLineArrowAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_arrow" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_arrow" checked />
+                                        }Show arrow button
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableRulerAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_ruler" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_ruler" />
+                                        }Show ruler button
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableTextAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_text" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_text" />
+                                        }Show text button
+                                    </label>
+                                </div>
+                                <div class="line">
+                                    <label class="mtn">
+                                        @if ((bool)ViewBag.EnableStickyNoteAnnotationButton)
+                                        {
+                                            <input type="checkbox" name="annotation_stickynote" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="annotation_stickynote" />
+                                        }Show sticky note button
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mts line">
+                        <input type="submit" name="submitLayout" class="pas w100" value="Apply" />
+                    </div>
+                </div>
+            }
+        </nav>
+        <div class="container">
+            @{
+                DocuVieware docuVieware = new DocuVieware
+                {
+                    ID = "DocuVieware1",
+                    Timeout = MvcApplication.SESSION_TIMEOUT,
+                    Height = new System.Web.UI.WebControls.Unit(ViewBag.ControlHeight + "px"),
+                    Width = new System.Web.UI.WebControls.Unit(ViewBag.ControlWidth + "px"),
+                    ToolbarBackColor = System.Drawing.ColorTranslator.FromHtml(ViewBag.ToolbarBackColor.ToString()),
+                    ViewerBackColor = System.Drawing.ColorTranslator.FromHtml(ViewBag.ViewerBackColor.ToString()),
+                    StrokeColor = System.Drawing.ColorTranslator.FromHtml(ViewBag.StrokeColor.ToString()),
+                    MiscBorderColor = System.Drawing.ColorTranslator.FromHtml(ViewBag.MiscBorderColor.ToString()),
+                    HeaderColor = System.Drawing.ColorTranslator.FromHtml(ViewBag.HeaderColor.ToString()),
+                    PanelBackColor = System.Drawing.ColorTranslator.FromHtml(ViewBag.PanelBackColor.ToString()),
+                    ActiveSelectedColor = System.Drawing.ColorTranslator.FromHtml(ViewBag.ActiveSelectedColor.ToString()),
+                    CollapsedSnapIn = (bool)ViewBag.CollapsedSnapIn,
+                    SnapInPanelDefaultWidth = new System.Web.UI.WebControls.Unit(ViewBag.SnapInPanelDefaultWidth + "px"),
+                    DocumentAlignment = (ViewerDocumentAlignment)Convert.ToInt32(ViewBag.DocumentAlignment),
+                    PagePreload = (PagePreloadMode)Convert.ToInt32(ViewBag.PagePreload),
+                    ViewRotation = (GdPictureRotateFlipType)Convert.ToInt32(ViewBag.ViewerRotation),
+                    ShowThumbnailsSnapIn = (bool)ViewBag.ShowThumbnailsSnapin,
+                    EnableMultipleThumbnailSelection = (bool)ViewBag.EnableMultiselect,
+                    ShowTextSearchSnapIn = (bool)ViewBag.ShowSearchSnapin,
+                    ShowAnnotationsSnapIn = (bool)ViewBag.ShowAnnotationsSnapin,
+                    ShowBookmarksSnapIn = (bool)ViewBag.ShowBookmarksSnapin,
+                    ShowToolbar = (bool)ViewBag.ShowToolbar,
+                    EnableFileUploadButton = (bool)ViewBag.ShowUploadButton,
+                    EnableLoadFromUriButton = (bool)ViewBag.ShowLoadFromURIButton,
+                    EnableSaveButton = (bool)ViewBag.ShowSaveButton,
+                    EnablePrintButton = (bool)ViewBag.ShowPrintButton,
+                    PrintQuality = (GdPicture14.WEB.PrintQuality)Convert.ToInt32(ViewBag.PrintQuality),
+                    EnablePagesNavigationButtons = (bool)ViewBag.ShowPageNavigation,
+                    EnableZoomButtons = (bool)ViewBag.ShowZoomButtons,
+                    ZoomStep = Convert.ToInt32(ViewBag.ZoomStep),
+                    EnableRotateButtons = (bool)ViewBag.ShowRotate,
+                    EnablePageViewButtons = (bool)ViewBag.ShowPageViewToggle,
+                    EnableFitWidthButton = (bool)ViewBag.ShowFitWidth,
+                    EnableFitPageButton = (bool)ViewBag.ShowFitPage,
+                    EnableZoom100Button = (bool)ViewBag.ShowZoom100,
+                    EnableMouseModeButtons = (bool)ViewBag.ShowMouseMode,
+                    EnableFullScreenButton = (bool)ViewBag.ShowFullscreen,
+                    ToolbarHeight = Convert.ToInt32(ViewBag.ToolbarHeight),
+                    ToolbarButtonsSpacing = Convert.ToInt32(ViewBag.ButtonSpacing),
+                    ThumbnailWidth = Convert.ToInt32(ViewBag.ThumbnailsWidth),
+                    ThumbnailHeight = Convert.ToInt32(ViewBag.ThumbnailsHeight),
+                    AnnotationDropShadow = (bool)ViewBag.AnnotationDropShadow,
+                    DisableAnnotationDrawingModePanel = !(bool)ViewBag.ContinuousDrawingMode,
+                    EnableRectangleHighlighterAnnotationButton = (bool)ViewBag.EnableRectangleHighlighterAnnotationButton,
+                    EnableFreehandHighlighterAnnotationButton = (bool)ViewBag.EnableFreehandHighlighterAnnotationButton,
+                    EnableRubberStampAnnotationButton = (bool)ViewBag.EnableRubberStampAnnotationButton,
+                    EnableRectangleAnnotationButton = (bool)ViewBag.EnableRectangleAnnotationButton,
+                    EnableEllipseAnnotationButton = (bool)ViewBag.EnableEllipseAnnotationButton,
+                    EnableLineAnnotationButton = (bool)ViewBag.EnableLineAnnotationButton,
+                    EnableConnectedLineAnnotationButton = (bool)ViewBag.EnableConnectedLineAnnotationButton,
+                    EnableFreehandAnnotationButton = (bool)ViewBag.EnableFreehandAnnotationButton,
+                    EnableLineArrowAnnotationButton = (bool)ViewBag.EnableLineArrowAnnotationButton,
+                    EnableRulerAnnotationButton = (bool)ViewBag.EnableRulerAnnotationButton,
+                    EnableTextAnnotationButton = (bool)ViewBag.EnableTextAnnotationButton,
+                    EnableStickyNoteAnnotationButton = (bool)ViewBag.EnableStickyNoteAnnotationButton,
+                    EnableTwainAcquisitionButton = false,
+                    EnableFormFieldsEdition = false
+                };
+                //Only ViewerDocumentPosition.DocumentPositionMiddleCenter is supported when SinglePageView is False
+                docuVieware.DocumentPosition = docuVieware.SinglePageView == false ? ViewerDocumentPosition.DocumentPositionMiddleCenter : (ViewerDocumentPosition)Convert.ToInt32(ViewBag.DocumentPosition);
+                docuVieware.RenderControl(Output);
+                docuVieware.Dispose();
+            }
+        </div>
+    </div>
+</body>
+</html>

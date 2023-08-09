@@ -1,0 +1,30 @@
+﻿<Window x:Class="Csharp_Barcode_Recognition.WPF.ThresholdDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Threshold..." Height="300" Width="550">
+    <Grid>
+        <ComboBox Name="ComboBox1" HorizontalAlignment="Left" Height="20" Margin="87,40,0,0" VerticalAlignment="Top" Width="241" SelectionChanged="ComboBox1_SelectionChanged">
+            <ComboBoxItem Name="Linear" Content="Linear"/>
+            <ComboBoxItem Name="Adaptive" Content="Adaptive (Otsu)"/>
+            <ComboBoxItem Name="Sauvola" Content="Sauvola"/>
+        </ComboBox>
+        <Label Content="Binarization" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Parameters" HorizontalAlignment="Left" Height="143" Margin="10,93,0,0" VerticalAlignment="Top" Width="378">
+            <Grid Margin="0,0,-12,0">
+                <Label Name="lbl1" Content="Threshold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.158,0.5"/>
+                <Label Name="lbl2" Content="Smooth kernel" Visibility="Hidden" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.158,0.5"/>
+                <Label Name="lbl3" Content="Contrast Difference Min" Visibility="Hidden" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.158,0.5"/>
+                <TextBox Name="txtThreshold" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="313,14,0,0" TextWrapping="Wrap" Text="128" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.488,0.478"/>
+                <TextBox Name="txtSmooth" Visibility="Hidden" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="313,45,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.488,0.478"/>
+                <TextBox Name="txtCont" Visibility="Hidden" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="313,72,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.488,0.478"/>
+
+            </Grid>
+        </GroupBox>
+        <Slider Name="sldThreshold" HorizontalAlignment="Left" Margin="177,128,0,0" VerticalAlignment="Top" Width="151" Maximum="254" SmallChange="1" Value="128" ValueChanged="sldThreshold_ValueChanged" Minimum="1"/>
+        <Slider Name="sldSmooth" HorizontalAlignment="Left" Margin="177,158,0,0" VerticalAlignment="Top" Width="151" Maximum="5" SmallChange="1" Value="2" ValueChanged="sldSmooth_ValueChanged" Visibility="Hidden"/>
+        <Slider Name="sldCont" HorizontalAlignment="Left" Margin="177,184,0,0" VerticalAlignment="Top" Width="151" Maximum="255" SmallChange="1" Value="50" ValueChanged="sldCont_ValueChanged" Visibility="Hidden"/>
+        <Button Content="OK" HorizontalAlignment="Left" Height="20" Margin="404,202,0,0" VerticalAlignment="Top" Width="60" Click="Button_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Height="20" Margin="472,202,0,0" VerticalAlignment="Top" Width="60" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>

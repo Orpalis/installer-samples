@@ -1,0 +1,134 @@
+﻿@using System.Drawing
+@using System.Web.UI.HtmlControls
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DocuVieware - Annotations Demo.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="~/Content/leave_request_approval.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+    @{
+        GdPicture14.WEB.DocuVieware docuVieware = new GdPicture14.WEB.DocuVieware
+        {
+            ID = "DocuVieware1",
+            Timeout = MvcApplication.SESSION_TIMEOUT,
+            Height = new System.Web.UI.WebControls.Unit("100%"),
+            Width = new System.Web.UI.WebControls.Unit("100%"),
+            AnnotationDropShadow = false,
+            FreeHandContinuousDrawingMode = true,
+            DisableAnnotationDrawingModePanel = true
+        };
+        using (HtmlGenericControl icon = new HtmlGenericControl("svg"))
+        {
+            icon.Attributes["viewBox"] = "0 0 16 16";
+            icon.Attributes["width"] = "100%";
+            icon.Attributes["height"] = "100%";
+            icon.InnerHtml = "<path d=\"M0 16c2-6 7.234-16 16-16-4.109 3.297-6 11-9 11s-3 0-3 0l-3 5h-1z\"></path>";
+
+            using (HtmlGenericControl panel = new HtmlGenericControl("div"))
+            {
+                panel.ClientIDMode = ClientIDMode.Static;
+                panel.ID = "LeaveRequestApprovalSnapInPanel" + docuVieware.UniqueID;
+                using (HtmlGenericControl customSnapInButtonDiv = new HtmlGenericControl("div"))
+                {
+                    customSnapInButtonDiv.Style["float"] = "left";
+                    customSnapInButtonDiv.Style["margin-top"] = "6px";
+                    customSnapInButtonDiv.Style["margin-left"] = "6px";
+                    using (HtmlGenericControl customSnapInButton = new HtmlGenericControl("button"))
+                    {
+                        customSnapInButton.ID = "LeaveRequestApprovalSnapInBlueMarker" + docuVieware.UniqueID;
+                        customSnapInButton.Attributes["class"] = "btn-valid";
+                        customSnapInButton.Style["margin-bottom"] = "15px";
+                        customSnapInButton.Style["margin-left"] = "15px";
+                        customSnapInButton.Style["height"] = "26px";
+                        customSnapInButton.Style["width"] = "80px";
+                        customSnapInButton.Style["display"] = "block";
+                        customSnapInButton.Style["background"] = ColorTranslator.ToHtml(docuVieware.ActiveSelectedColor);
+                        customSnapInButton.InnerHtml = "Marker";
+                        customSnapInButton.Attributes["onclick"] = "blueMarkerAnnotation(); return false;";
+                        customSnapInButtonDiv.Controls.Add(customSnapInButton);
+                    }
+                    panel.Controls.Add(customSnapInButtonDiv);
+                    using (HtmlGenericControl customSnapInButton = new HtmlGenericControl("button"))
+                    {
+                        customSnapInButton.ID = "LeaveRequestApprovalSnapInTimestamp" + docuVieware.UniqueID;
+                        customSnapInButton.Attributes["class"] = "btn-valid";
+                        customSnapInButton.Style["margin-bottom"] = "15px";
+                        customSnapInButton.Style["margin-left"] = "15px";
+                        customSnapInButton.Style["height"] = "26px";
+                        customSnapInButton.Style["width"] = "80px";
+                        customSnapInButton.Style["display"] = "block";
+                        customSnapInButton.Style["background-color"] = ColorTranslator.ToHtml(docuVieware.ActiveSelectedColor);
+                        customSnapInButton.InnerHtml = "Timestamp";
+                        customSnapInButton.Attributes["onclick"] = "addTimestamp(); return false;";
+                        customSnapInButtonDiv.Controls.Add(customSnapInButton);
+                    }
+                    panel.Controls.Add(customSnapInButtonDiv);
+                    using (HtmlGenericControl customSnapInButton = new HtmlGenericControl("button"))
+                    {
+                        customSnapInButton.ID = "LeaveRequestApprovalSnapInSignature" + docuVieware.UniqueID;
+                        customSnapInButton.Attributes["class"] = "btn-valid";
+                        customSnapInButton.Style["margin-bottom"] = "15px";
+                        customSnapInButton.Style["margin-left"] = "15px";
+                        customSnapInButton.Style["height"] = "26px";
+                        customSnapInButton.Style["width"] = "80px";
+                        customSnapInButton.Style["display"] = "block";
+                        customSnapInButton.Style["background-color"] = ColorTranslator.ToHtml(docuVieware.ActiveSelectedColor);
+                        customSnapInButton.InnerHtml = "Signature";
+                        customSnapInButton.Attributes["onclick"] = "addSignature(); return false;";
+                        customSnapInButtonDiv.Controls.Add(customSnapInButton);
+                    }
+                    panel.Controls.Add(customSnapInButtonDiv);
+                }
+                docuVieware.AddCustomSnapIn("LeaveRequestApprovalSnapIn", "Leave Request Approval", icon, panel, true);
+            }
+        }
+        docuVieware.LoadFromStream(new FileStream(MvcApplication.GetDocumentsDirectory() + @"\leave_requests.pdf", FileMode.Open, FileAccess.Read), true, "leave_requests.pdf");
+        docuVieware.RenderControl(Output);
+        docuVieware.Dispose();
+    }
+    <script>
+        // This function is called upon "Marker" button click
+        function blueMarkerAnnotation() {
+            var annotationAppearance = {
+                borderWidth: 0.06,
+                dashStyle: 0,
+                dashCap: 0,
+                opacity: 0.9,
+                strokeColor: "#104293"
+            };
+            DocuViewareAPI.AddFreeHandAnnotInteractive("DocuVieware1", annotationAppearance, false);
+        }
+        // This function is called upon "Timestamp" button click
+        function addTimestamp() {
+            DocuViewareAPI.PostCustomServerAction("DocuVieware1", true, "addTimestamp");
+        }
+        // This function is called upon "Signature" button click
+        function addSignature() {
+            DocuViewareAPI.PostCustomServerAction("DocuVieware1", true, "addSignature");
+        }
+        // This function is called on window.load event
+        function RegisterOnNewDocumentLoadedOnDocuViewareAPIReady() {
+            if (typeof DocuViewareAPI !== "undefined" && DocuViewareAPI.IsInitialized("DocuVieware1")) {
+                DocuViewareAPI.RegisterOnNewDocumentLoaded("DocuVieware1", function () {
+                    DocuViewareAPI.SelectSnapIn("DocuVieware1", "LeaveRequestApprovalSnapIn");
+                });
+            }
+            else {
+                setTimeout(function () { RegisterOnNewDocumentLoadedOnDocuViewareAPIReady() }, 10);
+            }
+        }
+        window.onload = function () {
+            RegisterOnNewDocumentLoadedOnDocuViewareAPIReady();
+        }
+    </script>
+</body>
+</html>

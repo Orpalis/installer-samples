@@ -1,0 +1,266 @@
+a, a:visited  {
+    color: #0382d4;
+    transition-duration: 0.5s;
+}
+
+    a:hover {
+        text-decoration: none;
+        transition-duration: 0.5s;
+    }
+
+*|*:-moz-any-link {
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+body {
+    background: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#header {
+    background: #fff;
+    border-bottom: 2px solid #0382d4;
+    width: 100%;
+    padding: 1rem 3rem 0;
+    min-height: 90px;
+}
+
+    #header h1 {
+        font-size: 100%;
+        line-height: 2rem;
+    }
+
+    #header .logo {
+        display: block;
+        float: left;
+        margin-top: 1.4rem;
+        margin-right: 1rem;
+    }
+
+#header-desc {
+    text-align: right;
+    margin-bottom: 1rem;
+    float: right;
+}
+
+article a {
+    transition: all .8s cubic-bezier(.19,1,.22,1) !important;
+    color: #0382d4;
+    padding-bottom: 2px;
+    text-decoration: none;
+}
+
+    article a:hover {
+        text-decoration: none;
+        color: #0382d4;
+    }
+
+.legende {
+    background: #000;
+    padding: 60px;
+    z-index: 999;
+}
+
+    .legende p {
+        color: #eee;
+        line-height: 36px;
+        font-size: 1em;
+    }
+
+    .legende a {
+        color: #aaa;
+        text-transform: uppercase;
+        border: 2px #aaa solid;
+        text-decoration: none;
+        padding: 10px 20px 10px;
+        font-size: 0.9em;
+    }
+
+        .legende a:hover {
+            color: #fff;
+            transition: all .8s cubic-bezier(.19,1,.22,1);
+            border: 2px #fff solid;
+        }
+
+/* ARTICLE */
+.ligne2 {
+    position: relative;
+    display: block;
+}
+
+article {
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+    article p {
+        font-family: "Droid serif", times, serif;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+.docuvieware-player {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width:100%;
+    height:900px;
+}
+
+.zone-img {
+    position: relative;
+}
+
+section img {
+    display: block;
+    margin: 50px auto 0;
+    width: 100%;
+}
+
+article .legende-img-article {
+    color: #0382d4;
+    font-size: 2em;
+    font-family: 'Droid Serif', Times, Serif;
+    background: #eee;
+    padding: 20px 0;
+    width: 100%;
+}
+
+h1 {
+    font-size: 150%;
+    color: #0382d4;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 120%;
+}
+
+h3 {
+    font-size: 100%;
+}
+
+.docuvieware-player img {
+    margin-bottom: 4em;
+}
+/* FIN article */
+/* Footer pied de page */
+.pied-de-page {
+    background: #000;
+    height: 250px;
+    padding: 60px;
+}
+
+    .pied-de-page p {
+        color: #666;
+    }
+
+.footer-blog-hr {
+    border: 1px #ccc solid;
+}
+
+footer {
+    padding: 0 0 100px 0;
+}
+
+    footer p {
+        width: 75%;
+        display: block;
+        float: left;
+        font-size: 0.9em;
+    }
+
+    footer img {
+        width: 20%;
+        float: left;
+        border-radius: 100px;
+        margin-right: 15px;
+    }
+
+    footer h3 {
+        margin-top: 0;
+        color: #0382d4;
+        font-size: 1.4em;
+    }
+
+#footer-article-author {
+    padding-top: 15px;
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    #header {
+        background: #fff;
+        border-bottom: 2px solid #0382d4;
+        width: 100%;
+        padding: 1rem 3rem 0;
+        min-height: 90px;
+    }
+
+
+    .legende {
+        background: #333;
+        padding: 35px 35px 40px;
+        position: absolute;
+        bottom: -50px;
+        right: 120px;
+    }
+
+        .legende p {
+            color: #eee;
+            line-height: 36px;
+            font-size: 1em;
+        }
+
+    article {
+        width: 750px;
+    }
+
+    section img {
+        width: 110%;
+        margin-left: -43px;
+    }
+
+    article .legende-img-article {
+        position: relative;
+        bottom: 150px;
+        color: #0382d4;
+        font-size: 2em;
+        font-family: 'Droid Serif', Times, Serif;
+        background: #eee;
+        padding: 20px 15px;
+    }
+
+    footer img {
+        width: 15%;
+        float: left;
+        border-radius: 100px;
+        margin-right: 15px;
+    }
+
+    #footer-article-author {
+        padding-top: 27px;
+    }
+}
+
+/* Small devices (, 750px and less) */
+@media (max-width: 750px) {
+    #header {
+        background: #fff;
+        border-bottom: 2px solid #0382d4;
+        width: 100%;
+        padding: 1rem 3rem 0;
+        float: inherit;
+    }
+
+        #header .logo {
+            margin: 1rem auto 0;
+            float: inherit;
+        }
+
+    #header-desc {
+        text-align: center;
+        padding-bottom: 1rem;
+        float: inherit;
+    }
+}

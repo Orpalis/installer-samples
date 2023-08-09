@@ -1,0 +1,11 @@
+﻿<Window x:Class="DicomViewer.winLoadingProgression"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="winLoadingProgression" Height="89" Width="338" WindowStyle="None" ShowInTaskbar="False" Topmost="True" WindowStartupLocation="CenterOwner" Loaded="Window_Loaded" ResizeMode="NoResize"  >
+    <Grid>
+        <Label Content="Loading images..." HorizontalContentAlignment ="Center" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="317"/>
+        <ProgressBar x:Name="pgBar" HorizontalAlignment="Left" Height="24" Margin="10,31,0,0" VerticalAlignment="Top" Width="317"/>
+        <Label x:Name="lbStatus" HorizontalContentAlignment ="Center"  Content="0 / 0" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="317"/>
+
+    </Grid>
+</Window>

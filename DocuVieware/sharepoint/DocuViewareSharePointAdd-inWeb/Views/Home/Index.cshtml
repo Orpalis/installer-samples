@@ -1,0 +1,39 @@
+﻿@using DocuViewareSharePointAdd_inWeb.Models
+
+@model IndexViewModel
+
+@{
+    ViewBag.Title = "DocuVieware - SharePoint Documents Reading Made Simple";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>@Model.Title</h4>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>File name</th>
+                        <th>Relative URL</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DocumentItem document in Model.Documents)
+                    {
+                        <tr>
+                            <td>@document.Id</td>
+                            <td>@document.Name</td>
+                            <td>@document.Url</td>
+                            <td>@Html.ActionLink("Open", "DisplayDocument", new { documentId = document.Id }, new { target = "_blank" })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <p>@Model.Documents.Count document@(Model.Documents.Count > 1 ? "s" : "") found</p>
+        </div>
+    </div>
+</div>

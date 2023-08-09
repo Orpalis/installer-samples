@@ -1,0 +1,33 @@
+﻿@using System.Text.Json
+@using GdPicture14;
+@attribute [Microsoft.AspNetCore.Components.RouteAttribute(CONST_PAGEROUTE)]
+@inject ILogger<Viewer> _logger;
+
+<PageTitle>Docuvieware and Blazor</PageTitle>
+
+<div class="d-grid gap-2 d-md-block">
+    <button class="btn btn-outline-info" @onclick="rotateCurrentPage">Click here to rotate page</button>
+</div>
+
+<DocuviewareComponent @ref="DvControl" OnRotation="@onRotatePage" OnAnnotationAdded="@onAnnotAdded" />
+
+@code {
+    public const string CONST_PAGEROUTE = "/Viewer";
+    DocuviewareComponent DvControl;
+
+    private async void rotateCurrentPage() => await this.DvControl.RotatePage();
+
+    private async void onRotatePage(GdPictureRotateFlipType rotation)
+    {
+        int currentPage = await DvControl.GetCurrentPage();
+        _logger.LogInformation("Page {0} rotated {1}",currentPage, rotation);
+    }
+
+    private void onAnnotAdded(JsonElement annot)
+    {
+        string annotId = annot.GetProperty("id").GetRawText();
+        string pageNo = annot.GetProperty("pageNo").GetRawText();
+
+        _logger.LogInformation("annot {0} added on page {1}",annotId , pageNo);
+    }
+}

@@ -1,0 +1,47 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #f2f2f2;
+}
+
+#description_container {
+    width: 400px;
+    height: 100%;
+    float: left;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+#application_container {
+    float: right;
+    position: absolute;
+    left: 440px;
+    right: 0;
+    height: 100%;
+}
+
+#toolbar_container {
+    height: 73px;
+    padding: 10px;
+}
+
+    #toolbar_container button {
+        border: none;
+        background-color: #f2f2f2;
+        cursor: pointer;
+    }
+
+#viewer_container {
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 73px;
+    bottom: 0;
+    border: 1px solid #808080;
+}

@@ -1,0 +1,45 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+    height: 100%;
+    background-color: #f2f2f2;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+}
+
+#information_container {
+    width: 400px;
+    height: 100%;
+    float: left;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+#application_container {
+    float: right;
+    position: absolute;
+    left: 440px;
+    right: 0;
+    height: 100%;
+}
+
+#toolbar_container {
+    height: 73px;
+    padding: 10px;
+}
+
+#viewer_container {
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 73px;
+    bottom: 0;
+    border: 1px solid #808080;
+}

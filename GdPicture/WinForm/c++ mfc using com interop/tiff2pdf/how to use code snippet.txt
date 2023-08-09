@@ -1,0 +1,5 @@
+To use this code snippet, you have to import these header files from registered GdPicture.NET COM DLL:
+	CLicenseManager.h
+	CGdPictureImaging.h
+If you need any assistance, procedure description can be found in documentation here:
+http://guides.gdpicture.com/content/webframe.html#Visual%20C++%20with%20MFC.html

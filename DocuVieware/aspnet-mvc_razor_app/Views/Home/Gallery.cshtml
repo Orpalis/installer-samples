@@ -1,0 +1,122 @@
+﻿@using System.Web.UI.HtmlControls
+@using System.Web.UI.WebControls
+@using GdPicture14
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DocuVieware - Gallery Demo.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-3.1.0.min.js"></script>
+    <link href="~/Content/gallery.css" rel="stylesheet" type="text/css" />
+</head>
+@{
+    GdPicture14.WEB.DocuVieware docuVieware = new GdPicture14.WEB.DocuVieware
+    {
+        ID = "DocuVieware1",
+        Timeout = MvcApplication.SESSION_TIMEOUT,
+        Height = new Unit("100%"),
+        Width = new Unit("100%"),
+        SinglePageView = false,
+        ForceScrollBars = false,
+        AllowedExportFormats = "*",
+        EnableFileUploadButton = false,
+        EnableLoadFromUriButton = false,
+        DocumentAlignment = ViewerDocumentAlignment.DocumentAlignmentTopLeft,
+        EnableMultipleThumbnailSelection = true,
+        EnableMouseModeButtons = false,
+        EnableTwainAcquisitionButton = false,
+        EnableFormFieldsEdition = false
+    };
+}
+<body>
+    <div id="gallery">
+        <div id="gallery_icon_container">
+            <div id="gallery_icon">
+                <svg height="100%" width="100%" viewBox="0 0 512 512">
+                    <path d="M382.5,139.5v-70h-62v-69h-261v372h62v70h70v70h261v-373H382.5z M81.5,350.5v-328h216v328H81.5z M144.5,420.5v-48h176v-280 h40v328H144.5z M430.5,489.5h-216v-47h168v-281h48V489.5z" />
+                    <rect x="104.5" y="194.5" width="168" height="23" />
+                    <rect x="103.5" y="243.5" width="168" height="23" />
+                    <rect x="104.5" y="292.5" width="84" height="23" />
+                    <path d="M104.5,50.5v117h168v-117H104.5z M250.5,146.5h-123v-73h123V146.5z" />
+                </svg>
+            </div>
+            <span id="gallery_header_title">Document Gallery</span>
+        </div>
+        <div id="gallery_panel_content">
+            <div id="gallery_container">
+                @{
+                    bool firstDoc = true;
+                    foreach (string doc in Directory.GetFiles(MvcApplication.GetDocumentsDirectory()))
+                    {
+                        DocumentFormat documentFormat = DocumentFormat.DocumentFormatUNKNOWN;
+                        int pageCount = 0;
+                        GdPictureDocumentUtilities.GetDocumentPreview(doc, ref documentFormat, ref pageCount);
+
+                        if (documentFormat != DocumentFormat.DocumentFormatUNKNOWN)
+                        {
+                            using (HtmlGenericControl thumbnailContainer = new HtmlGenericControl("div"))
+                            {
+                                thumbnailContainer.Attributes["class"] = "thumbnail_container";
+                                using (ImageButton btn = new ImageButton())
+                                {
+                                    btn.ImageUrl = Url.Action("GalleryGetDocumentThumbnail", "Home", new { doc = HttpUtility.UrlEncode(Path.GetFileName(doc)) });
+                                    btn.Attributes["class"] = "thumbnail_button";
+                                    btn.OnClientClick = "loadDocument('" + HttpUtility.UrlEncode(Path.GetFileName(doc)) + "', this); return false;";
+                                    if (firstDoc)
+                                    {
+                                        if (docuVieware.LoadFromStream(new FileStream(doc, FileMode.Open, FileAccess.Read), true, Path.GetFileName(doc)) == GdPictureStatus.OK)
+                                        {
+                                            thumbnailContainer.Attributes["class"] += " item-selected";
+                                            firstDoc = false;
+                                        }
+                                    }
+                                    thumbnailContainer.Controls.Add(btn);
+                                }
+                                using (HtmlGenericControl titleThumbnail = new HtmlGenericControl("div"))
+                                {
+                                    titleThumbnail.InnerHtml = documentFormat.ToString().Replace("DocumentFormat", "") + " file<br />" + pageCount + " page" + (pageCount > 1 ? "s" : "");
+                                    thumbnailContainer.Controls.Add(titleThumbnail);
+                                }
+                                thumbnailContainer.RenderControl(new HtmlTextWriter(Output));
+                            }
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div id="viewer_container">
+        @{
+            docuVieware.RenderControl(Output);
+            docuVieware.Dispose();
+        }
+    </div>
+    <script>
+        function loadDocument(doc, elem) {
+            if (doc) {
+                DocuViewareAPI.PostCustomServerAction('DocuVieware1', true, 'load', decodeURIComponent(doc),
+                    function () {
+                        resetButtons();
+                        elem.parentElement.className += " item-selected";
+                    },
+                    function () {
+                        resetButtons();
+                    }
+                );
+            }
+        }
+        function resetButtons() {
+            for (var i = 0; i < document.getElementById("gallery_container").children.length; i++) {
+                document.getElementById("gallery_container").children[i].className = "thumbnail_container";
+            }
+        }
+    </script>
+</body>
+</html>

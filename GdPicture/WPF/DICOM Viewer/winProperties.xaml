@@ -1,0 +1,14 @@
+﻿<Window x:Class="DicomViewer.winProperties"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DICOM Tags" Height="495.716" Width="1040.463" ResizeMode="NoResize">
+    <Grid>
+        <DataGrid x:Name="grdTags" Margin="0" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=tagID}" ClipboardContentBinding="{x:Null}" Header="Tag ID" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Path=desc}" ClipboardContentBinding="{x:Null}" Header="Description" Width="300"/>
+                <DataGridTextColumn Binding="{Binding Path=value}" ClipboardContentBinding="{x:Null}" Header="Value" Width="619"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

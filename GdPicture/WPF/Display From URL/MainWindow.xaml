@@ -1,0 +1,27 @@
+﻿<Window x:Class="Csharp_Display_From_URL.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14" 
+        Title="GdPicture WPF Displaying From URL" Height="700" Width="847" Loaded="Window_Loaded">
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="105"/>
+            <RowDefinition/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Label Content="HOST:" HorizontalAlignment="Left" Margin="22,10,0,0" VerticalAlignment="Top" Height="26" Width="50"/>
+        <Label Content="PATH:" HorizontalAlignment="Left" Margin="22,55,0,0" VerticalAlignment="Top" Height="26" Width="50"/>
+        <TextBox Name="txtHost" HorizontalAlignment="Left" Height="23" Margin="89,14,0,0" TextWrapping="Wrap" Text="www.gdpicture.com" VerticalAlignment="Top" Width="267"/>
+        <TextBox Name="txtPath" HorizontalAlignment="Left" Height="23" Margin="89,55,0,0" TextWrapping="Wrap" Text="/images/screenshot/dotnet_annotation_preview.jpg" VerticalAlignment="Top" Width="448"/>
+        <Button Content="Load !" HorizontalAlignment="Left" Margin="720,14,0,0" VerticalAlignment="Top" Width="99" Height="64" Click="Button_Click"/>
+        <DockPanel   x:Name="GdPicturePanel" LastChildFill="False" Margin="3,0,3,0" Grid.Row="1" >
+            <Grid x:Name="GdPictureGrid" Background="white" HorizontalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=GdPicturePanel, Mode=OneWay}" >
+                <GdPicture14:GdViewer x:Name="GdViewer1" DataReceived="GdViewer1_DataReceived" Grid.Column="1" Margin="0" Canvas.ZIndex="1"  AnimateGIF="True" Background="Black"  ContinuousViewMode="False" DocumentAlignment="DocumentAlignmentMiddleCenter" DocumentPosition="DocumentPositionMiddleCenter"  EnableICM="False" EnableMouseWheel="True"  MouseButtonForMouseMode="MouseButtonLeft" MouseMode="MouseModeDefault" MouseWheelMode="MouseWheelModeZoom" ZoomMode="ZoomModeFitToViewer"  BorderThickness="5,5,5,2" BorderBrush="Gray"/>
+            </Grid>
+        </DockPanel>
+        <ProgressBar Name="prgBar" HorizontalAlignment="Left" Height="20" Margin="10,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="693"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="708,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="28" Click="ZoomOut_Click"/>
+        <TextBlock Name="ZoomInfo" Grid.Row="2" HorizontalAlignment="Left" Text="{Binding ElementName=GdViewer1, Path=Zoom, StringFormat={} {0:P}}" VerticalAlignment="Center" Margin="741,8,0,11"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="797,0,0,10" Grid.Row="2" Width="28" Height="20" VerticalAlignment="Bottom" Click="ZoomIn_Click"/>
+    </Grid>
+</Window>

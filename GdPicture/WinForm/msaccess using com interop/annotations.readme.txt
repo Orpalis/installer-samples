@@ -1,0 +1,1 @@
+Thanks to the author, Stephan Kraft from DokuWork GmbH who created this demo for the Ms-Access developers community.

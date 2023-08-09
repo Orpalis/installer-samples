@@ -1,0 +1,149 @@
+﻿<Window x:Class="Csharp_Barcode_Recognition.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14" 
+        xmlns:self="clr-namespace:Csharp_Barcode_Recognition.WPF"
+        Title="GdPicture Barcode Recognition WPF" Height="761.03" Width="1048" Loaded="Window_Loaded">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="self:CustomCommands.OpenFile" CanExecute="OpenFileCommand_CanExecute" Executed="OpenFileCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.Close" CanExecute="CloseCommand_CanExecute" Executed="CloseCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.Exit" CanExecute="ExitCommand_CanExecute" Executed="ExitCommand_Executed" />
+
+        <CommandBinding Command="self:CustomCommands.Despeckle" CanExecute="FiltersCommand_CanExecute" Executed="DespeckleCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.Median" CanExecute="FiltersCommand_CanExecute" Executed="MedianCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.Smooth" CanExecute="FiltersCommand_CanExecute" Executed="SmoothCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.AutoDeskew" CanExecute="FiltersCommand_CanExecute" Executed="AutoDeskewCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.Dilate" CanExecute="FiltersCommand_CanExecute" Executed="DilateCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.Erode" CanExecute="FiltersCommand_CanExecute" Executed="ErodeCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.RemoveDots" CanExecute="FiltersCommand_CanExecute" Executed="RemoveDotsCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.FillHolesMenu" CanExecute="FiltersCommand_CanExecute" />
+        <CommandBinding Command="self:CustomCommands.FillHHoles" CanExecute="FiltersCommand_CanExecute" Executed="FillHHolesCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.FillVHoles" CanExecute="FiltersCommand_CanExecute" Executed="FillVHolesCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.RemoveHLines" CanExecute="FiltersCommand_CanExecute" Executed="RemoveHLinesCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.RemoveVLines" CanExecute="FiltersCommand_CanExecute" Executed="RemoveVLinesCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.Threshold" CanExecute="ThresholdCommand_CanExecute" Executed="ThresholdCommand_Executed" />
+        <CommandBinding Command="self:CustomCommands.Rotate" CanExecute="FiltersCommand_CanExecute" Executed="RotateCommand_Executed" />
+
+        <CommandBinding Command="self:CustomCommands.ScaleMenu" CanExecute="FiltersCommand_CanExecute" />
+        <CommandBinding Command="self:CustomCommands.Scale50" CanExecute="FiltersCommand_CanExecute" Executed="Scale50Command_Executed" />
+        <CommandBinding Command="self:CustomCommands.Scale75" CanExecute="FiltersCommand_CanExecute" Executed="Scale75Command_Executed" />
+        <CommandBinding Command="self:CustomCommands.Scale150" CanExecute="FiltersCommand_CanExecute" Executed="Scale150Command_Executed" />
+        <CommandBinding Command="self:CustomCommands.Scale200" CanExecute="FiltersCommand_CanExecute" Executed="Scale200Command_Executed" />
+        <CommandBinding Command="self:CustomCommands.Scale300" CanExecute="FiltersCommand_CanExecute" Executed="Scale300Command_Executed" />
+
+        <CommandBinding Command="self:CustomCommands.Start" CanExecute="FiltersCommand_CanExecute" Executed="StartCommand_Executed" />
+    </Window.CommandBindings>
+
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="125"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="269*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Menu IsMainMenu="True" BorderBrush="Black" BorderThickness="2">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open" Command="self:CustomCommands.OpenFile"/>
+                <MenuItem Header="_Close" Command="self:CustomCommands.Close"/>
+                <MenuItem Header="_Exit" Command="self:CustomCommands.Exit"/>
+            </MenuItem>
+            <MenuItem Header="_Image Enhancement">
+                <MenuItem Header="_Despeckle" Command="self:CustomCommands.Despeckle"/>
+                <MenuItem Header="_Median" Command="self:CustomCommands.Median"/>
+                <MenuItem Header="_Smooth" Command="self:CustomCommands.Smooth"/>
+                <MenuItem Header="_AutoDeskew" Command="self:CustomCommands.AutoDeskew"/>
+                <MenuItem Header="_Dilate Characters" Command="self:CustomCommands.Dilate"/>
+                <MenuItem Header="_Erode Characters" Command="self:CustomCommands.Erode"/>
+                <MenuItem Header="_RemoveIsolatedDots" Command="self:CustomCommands.RemoveDots"/>
+                <MenuItem Header="_Fill Holes" Command="self:CustomCommands.FillHolesMenu">
+                    <MenuItem Header="_Horizontal" Command="self:CustomCommands.FillHHoles"/>
+                    <MenuItem Header="_Vertical" Command="self:CustomCommands.FillVHoles"/>
+                </MenuItem>
+                <MenuItem Header="_Remove Vertical Lines" Command="self:CustomCommands.RemoveVLines"/>
+                <MenuItem Header="_Remove Horizontal Lines" Command="self:CustomCommands.RemoveHLines"/>
+                <MenuItem Header="_Scale" Command="self:CustomCommands.ScaleMenu" >
+                    <MenuItem Header="_50 %" Command="self:CustomCommands.Scale50"/>
+                    <MenuItem Header="_75 %" Command="self:CustomCommands.Scale75"/>
+                    <MenuItem Header="_150 %" Command="self:CustomCommands.Scale150"/>
+                    <MenuItem Header="_200 %" Command="self:CustomCommands.Scale200"/>
+                    <MenuItem Header="_300 %" Command="self:CustomCommands.Scale300"/>
+                </MenuItem>
+                <MenuItem Header="_Threshold" Command="self:CustomCommands.Threshold"/>
+                <MenuItem Header="_Rotate 90 deg" Command="self:CustomCommands.Rotate"/>
+            </MenuItem>
+            <MenuItem Header="Start!" Command="self:CustomCommands.Start"/>
+        </Menu>
+        <DockPanel   x:Name="GdPicturePanel" LastChildFill="False" Margin="3,0,3,0" Grid.Row="3" >
+            <Grid x:Name="GdPictureGrid" Background="white" HorizontalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=GdPicturePanel, Mode=OneWay}"  >
+                <GdPicture14:GdViewer x:Name="GdViewer1" Grid.Column="1" Margin="0" Canvas.ZIndex="1" AnimateGIF="False" Background="Black"  ContinuousViewMode="True" DocumentAlignment="DocumentAlignmentMiddleCenter" DocumentPosition="DocumentPositionMiddleCenter" EnableICM="False" EnableMouseWheel="True" MouseButtonForMouseMode="MouseButtonLeft" MouseMode="MouseModeAreaSelection" MouseWheelMode="MouseWheelModeZoom"  MouseUp="GdViewer1_MouseUp" BorderThickness="5,5,5,2" BorderBrush="Gray"/>
+            </Grid>
+        </DockPanel>
+        <DockPanel   x:Name="InfoPanel" LastChildFill="False" Margin="3,0,3,0" Grid.Row="4">
+            <Grid x:Name="InfoGrid" Background="white" HorizontalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=InfoPanel, Mode=OneWay}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="134*"/>
+                    <ColumnDefinition Width="225*"/>
+                    <ColumnDefinition Width="88"/>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition Width="79"/>
+                    <ColumnDefinition Width="57"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Label Name ="lbImageInfo" Content="Image Info..." Grid.Column="0" Foreground="Black" VerticalContentAlignment="Center"/>
+                <Label Content="Draw a rectangle with a mouse around 1 or several barcodes" Grid.Column="1" Foreground="Red" HorizontalAlignment="Center" VerticalContentAlignment="Center" Margin="31,0,44,0" Width="344"/>
+                <Button Content="&lt;-" Grid.Column="2" HorizontalAlignment="Center" Margin="23,10,8,0" VerticalAlignment="Top"  Width="57" Click="Button_Click" Height="20"/>
+                <Button Content="-&gt;" Grid.Column="4" HorizontalAlignment="Center" Margin="4,10,19,0" VerticalAlignment="Top"  Width="56" Click="Button_Click_1" Height="20"/>
+                <Button Content="-" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="28" Click="Button_Click_3" Height="20"/>
+                <TextBlock Name="ZoomInfo" Grid.Column="6" HorizontalAlignment="Center" Text="{Binding ElementName=GdViewer1, Path=Zoom, StringFormat={} {0:P}}" VerticalAlignment="Center"/>
+                <Button Content="+" Grid.Column="7" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="28" Click="Button_Click_2" Height="20"/>
+                <Label Name="lbPage" Content="1/1" Grid.Column="3" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="8,7,8,0" VerticalAlignment="Top" Height="30" Width="28" />
+
+            </Grid>
+        </DockPanel>
+        <Grid Background="LightGray" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="125" Width="1030">
+            <Label Content="Global Options" Margin="10,10,914,82" FontWeight="Bold"/>
+            <Label Content="Engine Selection" Margin="422,10,473,82" FontWeight="Bold"/>
+            <Label Content="Extra PDF Selection" Margin="773,10,112,82" FontWeight="Bold"/>
+            <CheckBox Name="chkHQDetection"  Content="High Quality Detection" HorizontalAlignment="Left" Margin="18,42,0,0" VerticalAlignment="Top" IsChecked="True"/>
+            <CheckBox Name="CheckBox1" Content="Don't draw barcode bounding box" HorizontalAlignment="Left" Margin="179,42,0,0" VerticalAlignment="Top"/>
+            <Label Content="Expected Barcode Count" HorizontalAlignment="Left" Margin="18,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.474,0.385" Width="141"/>
+
+            <TextBox x:Name="nupBcCount" Text="0" TextChanged="nupBcCount_TextChanged" Margin="36,88,954,10" />
+            <Button x:Name="cmdUp"  Content="˄" Width="20" Click="cmdUp_Click" Margin="64,88,934,10" />
+            <Button x:Name="cmdDown"   Content="˅" Width="20" Click="cmdDown_Click" Margin="84,88,914,10" RenderTransformOrigin="1.55,0.647" />
+            <CheckBox Name="chkDetect1D" Content="Detect 1D Barcode" HorizontalAlignment="Left" Margin="434,42,0,0" VerticalAlignment="Top" Width="122" Checked="chkDetect1D_Checked" Unchecked="chkDetect1D_Unchecked"/>
+            <CheckBox Name="chkDetectQRCode" Content="Detect 2D QR-Code" HorizontalAlignment="Left" Margin="434,68,0,0" VerticalAlignment="Top" Width="132"/>
+            <CheckBox Name="chkDetectMicroQRCode" Content="Detect 2D Micro QR-Code" HorizontalAlignment="Left" Margin="434,91,0,0" VerticalAlignment="Top" Width="165"/>
+            <CheckBox Name="chkDetectDataMatrix" Content="Detect 2D DataMatrix" HorizontalAlignment="Left" Margin="599,42,0,0" VerticalAlignment="Top" Width="142"/>
+            <CheckBox Name="chkDetectPDF417" Content="Detect 2D PDF417" HorizontalAlignment="Left" Margin="599,68,0,0" VerticalAlignment="Top" Width="122"/>
+            <CheckBox Name="chkDetectPatchCode" Content="Detect Patch Code" HorizontalAlignment="Left" Margin="599,91,0,0" VerticalAlignment="Top" Width="122"/>
+            <Label Content="DPI:" HorizontalAlignment="Left" Margin="800,37,0,0" VerticalAlignment="Top" Width="33"/>
+            <TextBox Name="TextBox1" HorizontalAlignment="Left" Height="23" Margin="838,42,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="58"/>
+        </Grid>
+        <GroupBox Name="options1DEngine" Visibility="Hidden" Header="1D Engine Options"  HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="130" Width="1020" FontWeight="Bold">
+            <Grid Background="LightGray" >
+                <CheckBox FontWeight="Normal" Name="chkIndustrial2of5" Content="Industrial2of5" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" Name="chkCODE39" Content="CODE39" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" Name="chkEAN8" Content="EAN8" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" Name="chkAdd5" Content="Add5" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" Name="chkInverted2of5" Content="Inverted2of5" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" Name="chkCodeabar" Content="Codeabar" HorizontalAlignment="Left" Margin="135,30,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" Name="chkEAN13" Content="EAN13" HorizontalAlignment="Left" Margin="135,53,0,0" VerticalAlignment="Top" Width="116" RenderTransformOrigin="1.422,0.133"/>
+                <CheckBox FontWeight="Normal" x:Name="chkAdd2" Content="Add2" HorizontalAlignment="Left" Margin="135,73,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" x:Name="chkInterleaved2of5" Content="Interleaved2of5" HorizontalAlignment="Left" Margin="251,10,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" x:Name="chkBcdMatrix" Content="BcdMatrix" HorizontalAlignment="Left" Margin="251,30,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" x:Name="chkUPCA" Content="UPCA" HorizontalAlignment="Left" Margin="251,50,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" x:Name="chkIata2of5" Content="Iata2of5" HorizontalAlignment="Left" Margin="372,10,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" x:Name="chkDataLogic2of5" Content="DataLogic2of5" HorizontalAlignment="Left" Margin="372,30,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" x:Name="chkUPCE" Content="UPCE" HorizontalAlignment="Left" Margin="372,50,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" x:Name="chkUseCorrupted" Content="Also return corrupted barcodes" HorizontalAlignment="Left" Margin="372,73,0,0" VerticalAlignment="Top" Width="196"/>
+                <CheckBox FontWeight="Normal" x:Name="chkMatrix2of5" Content="Matrix2of5" HorizontalAlignment="Left" Margin="479,10,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" x:Name="chkCode128" Content="Code128" HorizontalAlignment="Left" Margin="479,30,0,0" VerticalAlignment="Top" Width="116"/>
+                <CheckBox FontWeight="Normal" x:Name="chkCode93" Content="Code93" HorizontalAlignment="Left" Margin="479,53,0,0" VerticalAlignment="Top" Width="116"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

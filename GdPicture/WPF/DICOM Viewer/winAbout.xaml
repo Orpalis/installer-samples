@@ -1,0 +1,24 @@
+﻿<Window x:Name="ico" x:Class="DicomViewer.winAbout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:DicomViewer.Properties"
+        Title="About ORPALIS Free DICOM Viewer" Height="300" Width="435" ResizeMode="NoResize"  WindowStartupLocation="CenterOwner" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="167*"/>
+            <RowDefinition Height="44*"/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal"  Height="30" Margin="271,2,0,0" Grid.Row="3" VerticalAlignment="Top" Width="141">
+            <Image x:Name="orpalisFb" Margin="5,0,0,0" Source="fbk.png"  Cursor="Hand" Width="30" MouseDown="orpalisFb_MouseDown" Stretch="Fill" />
+            <Image x:Name="orpalisTwitter" Margin="5,0,0,0" Cursor="Hand" Source="twitter.png" Width="30" MouseDown="orpalisTwitter_MouseDown" Stretch="Fill" />
+            <Image x:Name="orpalisGPlus" Margin="5,0,0,0" Cursor="Hand" Source="gPlus.png" Width="30" MouseDown="orpalisGPlus_MouseDown" Stretch="Fill" />
+            <Image x:Name="orpalisLinkIn" Margin="5,0,0,0" Cursor="Hand" Source="linkedin.png" Width="30" MouseDown="orpalisLinkIn_MouseDown" Stretch="Fill" />
+        </StackPanel>
+        <Image Cursor="Hand" Source="dicomViewer.jpg"  HorizontalAlignment="Left" Height="144" Margin="34,18,0,0" Grid.Row="2" VerticalAlignment="Top" Width="348" MouseUp="Image_MouseUp"/>
+        <Label Content="Based on GdPicture.NET SDK - http://www.gdpicture.com" HorizontalAlignment="Left" Height="29" Margin="0,13,0,0" VerticalAlignment="Top" Width="358" MouseDown="Label_MouseDown" FontWeight="Bold" Cursor="Hand"/>
+        <Label Content="Copyright © ORPALIS 2013 - 2015&#xA;In memory of Dr. Emil Nemteanu, neurologist." HorizontalAlignment="Left" Height="43" Grid.Row="3" VerticalAlignment="Top" Width="253"/>
+
+    </Grid>
+</Window>

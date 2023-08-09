@@ -1,0 +1,22 @@
+﻿<Window x:Class="Csharp_async_Twain_Scanning.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Csharp_async_Twain_Scanning.WPF"
+        mc:Ignorable="d"
+        Title="GdPicture.NET Asynchronous TWAIN Scanning Demo (WPF)" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="button" Content="Asynchronous acquisition" HorizontalAlignment="Left" Height="111" Margin="10,34,0,0" VerticalAlignment="Top" Width="497" Click="button_Click"/>
+        <CheckBox x:Name="chkGenLog" Content="Generate LOG" HorizontalAlignment="Left" Height="19" Margin="10,10,0,0" VerticalAlignment="Top" Width="110"/>
+        <CheckBox x:Name="chkTwain19" Content="Force TWAIN 1.9" HorizontalAlignment="Left" Height="19" Margin="125,10,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label x:Name="label" Content="Working directory:" HorizontalAlignment="Left" Height="26" Margin="10,163,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtWorkingDir" HorizontalAlignment="Left" Height="26" Margin="130,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="377"/>
+        <CheckBox x:Name="chkModalUI" Content="Modal UI" HorizontalAlignment="Left" Height="19" Margin="10,214,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.523,5.239" IsChecked="True"/>
+        <CheckBox x:Name="chkHideGUI" Content="Hide device GUI" HorizontalAlignment="Left" Height="19" Margin="10,238,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.523,5.239" Checked="chkHideGUI_Checked" Unchecked="chkHideGUI_Unchecked"/>
+        <CheckBox x:Name="chkEnableIndicator" Content="Enable Indicator" HorizontalAlignment="Left" Height="19" Margin="10,262,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.523,5.239" Checked="chkEnableIndicator_Checked" Unchecked="chkEnableIndicator_Unchecked"/>
+        <CheckBox x:Name="chkUseFeeder" Content="Scan from feeder" HorizontalAlignment="Left" Height="19" Margin="130,214,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.523,5.239" Checked="chkUseFeeder_Checked" Unchecked="chkUseFeeder_Unchecked"/>
+        <CheckBox x:Name="chkDuplex" Content="Duplex" HorizontalAlignment="Left" Height="19" Margin="130,238,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.523,5.239" Checked="chkDuplex_Checked" Unchecked="chkDuplex_Unchecked"/>
+        <CheckBox x:Name="chkMemTransfer" Content="Favor memory transfer mode" HorizontalAlignment="Left" Height="19" Margin="130,262,0,0" VerticalAlignment="Top" Width="218" RenderTransformOrigin="0.523,5.239" IsChecked="True" Checked="chkMemTransfer_Checked" Unchecked="chkMemTransfer_Unchecked"/>
+    </Grid>
+</Window>

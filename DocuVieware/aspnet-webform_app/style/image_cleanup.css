@@ -1,0 +1,131 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+}
+
+.pas {
+    padding: 20px;
+}
+
+.mts {
+    margin-top: 10px;
+}
+
+.pts {
+    padding-top: 10px;
+}
+
+.pbs {
+    padding-bottom: 10px;
+}
+
+.pls {
+    padding-left: 10px;
+}
+
+.mls {
+    margin-left: 10px;
+}
+
+#navigation {
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 150px;
+    width: 350px;
+    z-index: 5000;
+    font-size: 0.9em;
+    font-family: Montserrat,sans-serif;
+}
+
+    #navigation .toggle-button {
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 2px;
+        background-color: #0382D4;
+        cursor: pointer;
+        height: 43px;
+        width: 35px;
+        color: #FFFFFF;
+    }
+
+        #navigation .toggle-button i {
+            color: #ffffff;
+            font-size: 30px;
+            left: 6px;
+            position: absolute;
+            top: 8px;
+            display: inline-block;
+            font-style: normal;
+            font-weight: bold;
+            line-height: 1;
+            fill: #FFFFFF;
+        }
+
+    #navigation .navigation-open {
+        position: absolute;
+        right: 0;
+        top: 40px;
+        width: 35px;
+    }
+
+    #navigation .navigation-close {
+        position: absolute;
+        right: 0;
+        top: 40px;
+        width: 35px;
+    }
+
+    #navigation #container {
+        background: none repeat scroll 0 0 #fff;
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        box-shadow: 0 2px 9px 2px rgba(0, 0, 0, 0.3);
+    }
+
+        #navigation #container .style-title {
+            color: #0382D4;
+            font-size: 34px;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+        }
+
+        #navigation #container .filter {
+            vertical-align: middle;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+
+            #navigation #container .filter:nth-child(even) {
+                background-color: #EEEEEE;
+            }
+
+        #navigation #container div.icon {
+            width: 75px;
+            height: 75px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+.filters {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.filter_name {
+    line-height: 75px;
+    vertical-align: top;
+}

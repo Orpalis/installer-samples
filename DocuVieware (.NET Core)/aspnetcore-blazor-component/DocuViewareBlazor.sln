@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocuViewareBlazor.Sample", "DocuViewareBlazor.Sample\DocuViewareBlazor.Sample.csproj", "{0A0D2C82-BF07-4D95-82AD-1B40F967161C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocuViewareBlazor.Component", "DocuViewareBlazor.Component\DocuViewareBlazor.Component.csproj", "{D54BBD3B-7D84-49B8-B585-A70B2A675AEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A0D2C82-BF07-4D95-82AD-1B40F967161C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A0D2C82-BF07-4D95-82AD-1B40F967161C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A0D2C82-BF07-4D95-82AD-1B40F967161C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A0D2C82-BF07-4D95-82AD-1B40F967161C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D54BBD3B-7D84-49B8-B585-A70B2A675AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D54BBD3B-7D84-49B8-B585-A70B2A675AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D54BBD3B-7D84-49B8-B585-A70B2A675AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D54BBD3B-7D84-49B8-B585-A70B2A675AEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B7D78BD-2219-432D-BFB2-47AD3C65AFC0}
+	EndGlobalSection
+EndGlobal

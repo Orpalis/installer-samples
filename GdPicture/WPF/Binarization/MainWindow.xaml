@@ -1,0 +1,55 @@
+﻿<Window x:Class="Csharp_Binarization.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14"  
+        Title="GdPicture Binarization WPF" Height="592.077" Width="847" Loaded="Window_Loaded">
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="269*"/>
+            <RowDefinition Height="125"/>
+        </Grid.RowDefinitions>
+        <Menu IsMainMenu="True" BorderBrush="Black" BorderThickness="2">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open" Click="Open_Click"/>
+                <MenuItem Header="_Save" Click="Save_Click"/>
+                <MenuItem Header="_Close" Click="Close_Click"/>
+                <MenuItem Header="_Exit" Click="Exit_Click"/>
+            </MenuItem>
+        </Menu>
+        <DockPanel   x:Name="GdPicturePanel"  HorizontalAlignment="Stretch" LastChildFill="False" Margin="3,0,3,0" Grid.Row="2" >
+            <Grid x:Name="GdPictureGrid" Background="white" HorizontalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=GdPicturePanel, Mode=OneWay}" >
+                <GdPicture14:GdViewer x:Name="GdViewer1" Grid.Column="1" Margin="0" Canvas.ZIndex="1"  Background="Black"  ContinuousViewMode="False" DocumentAlignment="DocumentAlignmentMiddleCenter" DocumentPosition="DocumentPositionMiddleCenter" EnableICM="False" EnableMouseWheel="True" MouseButtonForMouseMode="MouseButtonLeft" MouseMode="MouseModeDefault" MouseWheelMode="MouseWheelModeVerticalScroll" ZoomMode="ZoomModeFitToViewer"  BorderThickness="5,5,5,2" BorderBrush="Gray"/>
+            </Grid>
+        </DockPanel>
+        <ComboBox Name="comboBox1" HorizontalAlignment="Left" Margin="94,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="206" SelectionChanged="comboBox1_SelectionChanged">
+            <ComboBoxItem Content="None"/>
+            <ComboBoxItem Content="Linear"/>
+            <ComboBoxItem Content="Adaptive (Otsu)"/>
+            <ComboBoxItem Content="Order Dither"/>
+            <ComboBoxItem Content="Burke"/>
+            <ComboBoxItem Content="Stucki"/>
+            <ComboBoxItem Content="FloydStienberg"/>
+            <ComboBoxItem Content="Sauvola"/>
+        </ComboBox>
+        <Label Content="Binarization" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="79"/>
+        <GroupBox Name="parametersBox" Header="Parameters" Visibility="Hidden" HorizontalAlignment="Left" Margin="11,5,0,24" Width="799" Grid.Row="3">
+            <Grid Margin="0,0,-12,0">
+                <Label x:Name="lbl1" Content="Threshold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.158,0.5"/>
+                <Label x:Name="lbl2" Content="Smooth kernel" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.158,0.5"/>
+                <Label x:Name="lbl3" Content="Contrast Difference Min" HorizontalAlignment="Left" Margin="378,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.205,0.491"/>
+                <TextBox x:Name="txtThreshold" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="313,14,0,0" TextWrapping="Wrap" Text="128" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.488,0.478"/>
+                <TextBox x:Name="txtSmooth" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="313,45,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.488,0.478"/>
+                <TextBox x:Name="txtCont" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="680,10,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="44" RenderTransformOrigin="3.401,-1.025"/>
+                <Slider x:Name="sldThreshold" HorizontalAlignment="Left" Margin="151,16,0,0" VerticalAlignment="Top" Width="151" Maximum="254" SmallChange="1" Value="128" ValueChanged="sldThreshold_ValueChanged" Minimum="1"/>
+                <Slider x:Name="sldSmooth" HorizontalAlignment="Left" Margin="151,46,0,0" VerticalAlignment="Top" Width="151" Maximum="5" SmallChange="1" Value="2" ValueChanged="sldSmooth_ValueChanged"/>
+                <Slider x:Name="sldCont" HorizontalAlignment="Left" Margin="518,10,0,0" VerticalAlignment="Top" Width="152" Maximum="255" SmallChange="1" Value="50" ValueChanged="sldCont_ValueChanged"/>
+
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

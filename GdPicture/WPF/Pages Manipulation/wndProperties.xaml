@@ -1,0 +1,30 @@
+﻿<Window x:Class="Csharp_Pages_Manipulation.WPF.wndProperties"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Properties..." Height="701.176" Width="656.25">
+    <Grid Background="LightGray" Height="669" VerticalAlignment="Top">
+        <Label Content="Version :" HorizontalAlignment="Left" Margin="28,16,0,0" VerticalAlignment="Top" Width="58"/>
+        <Label Content="Encryption :" HorizontalAlignment="Left" Margin="28,47,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.827,0.576"/>
+        <Label Content="Title :" HorizontalAlignment="Left" Margin="28,78,0,0" VerticalAlignment="Top" Width="58"/>
+        <Label Content="Author :" HorizontalAlignment="Left" Margin="28,109,0,0" VerticalAlignment="Top" Width="58"/>
+        <Label Content="Subject :" HorizontalAlignment="Left" Margin="28,140,0,0" VerticalAlignment="Top" Width="58"/>
+        <Label Content="Keywords :" HorizontalAlignment="Left" Margin="28,171,0,0" VerticalAlignment="Top" Width="73"/>
+        <TextBox HorizontalAlignment="Left" Name="txtVersion" Height="23" Margin="106,20,0,0"  Text="" VerticalAlignment="Top" Width="73" IsReadOnly="True" />
+        <TextBox HorizontalAlignment="Left" Name="txtEncryption" Height="23" Margin="106,50,0,0"  Text="" VerticalAlignment="Top" Width="129" IsReadOnly="True" />
+        <TextBox HorizontalAlignment="Left" Name="txtTitle" Height="23" Margin="106,81,0,0"  Text="" VerticalAlignment="Top" Width="478" IsReadOnly="True" />
+        <TextBox HorizontalAlignment="Left" Name="txtAuthor" Height="23" Margin="106,112,0,0"  Text="" VerticalAlignment="Top" Width="478" IsReadOnly="True" />
+        <TextBox HorizontalAlignment="Left" Name="txtSubject" Height="23" Margin="106,143,0,0"  Text="" VerticalAlignment="Top" Width="478" IsReadOnly="True" />
+        <TextBox HorizontalAlignment="Left" Name="txtKeywords" Height="78" Margin="106,174,0,0"  Text="" VerticalAlignment="Top" Width="478" IsReadOnly="True" />
+        <Label Content="Created :" HorizontalAlignment="Left" Margin="28,270,0,0" VerticalAlignment="Top" Width="58"/>
+        <Label Content="Modified :" HorizontalAlignment="Left" Margin="28,301,0,0" VerticalAlignment="Top" Width="58"/>
+        <Label Content="Application :" HorizontalAlignment="Left" Margin="315,270,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label Content="Producer :" HorizontalAlignment="Left" Margin="315,301,0,0" VerticalAlignment="Top" Width="79"/>
+        <TextBox HorizontalAlignment="Left" Name="txtCreated" Height="23" Margin="106,273,0,0"  Text="" VerticalAlignment="Top" Width="185" IsReadOnly="True"   />
+        <TextBox HorizontalAlignment="Left" Name="txtModified" Height="23" Margin="106,304,0,0"  Text="" VerticalAlignment="Top" Width="185" IsReadOnly="True" />
+        <TextBox HorizontalAlignment="Left" Name="txtApplication" Height="23" Margin="399,273,0,0" TextWrapping="WrapWithOverflow" Text="" VerticalAlignment="Top" Width="185" IsReadOnly="True" />
+        <TextBox HorizontalAlignment="Left" Name="txtProducer" Height="23" Margin="399,304,0,0"  Text="" VerticalAlignment="Top" Width="185" IsReadOnly="True" />
+        <Label Content="Metadata :" HorizontalAlignment="Left" Margin="106,354,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox Name="txtMetadata" HorizontalAlignment="Left" Height="230" Margin="106,385,0,0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="478" IsReadOnly="True" />
+
+    </Grid>
+</Window>

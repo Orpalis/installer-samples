@@ -1,0 +1,107 @@
+html {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+    height: 100%;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+}
+
+#gallery {
+    background-color: #f2f2f2;
+    float: left;
+    height: 100%;
+    width: 20%;
+}
+
+#gallery_icon_container {
+    margin-left: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    height: 48px;
+    line-height: 48px;
+    font-family: Montserrat,sans-serif;
+    color: #646464;
+}
+
+#gallery_icon {
+    display: block;
+    fill: #646464;
+    float: left;
+    height: 24px;
+    line-height: 1;
+    padding-top: 11px;
+    vertical-align: middle;
+    width: 24px;
+}
+
+#gallery_header_title {
+    display: block;
+    float: left;
+    padding-left: 6px;
+}
+
+#gallery_panel {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+}
+
+#gallery_panel_content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 48px;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+    width: 100%;
+    background-color: #565656;
+}
+
+#gallery_container {
+    height: 100%;
+    text-align: center;
+    width: 20%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#viewer_container {
+    width: 80%;
+    height: 100%;
+    float: right;
+}
+
+.thumbnail_container {
+    font-family: Montserrat, sans-serif;
+    font-size: small;
+    font-weight: normal;
+    color: #fff;
+    margin: 5px;
+    padding: 10px;
+    display: inline-block;
+    background-color: transparent;
+    color: #fff;
+}
+
+.thumbnail_button {
+    display: inline-block;
+    outline: none;
+    height: 170px;
+    width: 120px;
+}
+
+.item-selected {
+    background-color: #cdcdcd;
+    color: #000;
+}

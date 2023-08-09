@@ -1,0 +1,247 @@
+*|*:-moz-any-link {
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+a, a:visited  {
+    color: #0382d4;
+    transition-duration: 0.5s;
+}
+
+    a:hover {
+        text-decoration: none;
+        transition-duration: 0.5s;
+    }
+
+#header {
+    height: 190px;
+    text-align: center;
+    padding-top: 30px;
+    background: #fff;
+}
+
+#header-desc {
+    text-align: center;
+}
+
+    #header-desc h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9em;
+        text-transform: uppercase;
+    }
+
+#header .version {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8em;
+    margin-top: -10px;
+}
+
+.header-sep {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    line-height: 0;
+    background: #0482d4;
+}
+
+.slider {
+    background: #0482d4 url("../img/bg-pattern.gif") repeat;
+}
+
+.img-slider {
+    left: -50px;
+}
+
+.slider-panel {
+    display: none;
+}
+
+.texte-desc-slider {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+    .texte-desc-slider p {
+        font-family: arial, sans-serif;
+        color: #fff;
+        font-size: 14px;
+        line-height: 19px;
+        line-height: 2em;
+    }
+
+    .texte-desc-slider h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2em;
+        color: #fff;
+    }
+
+.btn-slider {
+    transition-duration: 0.5s;
+    padding: 1em 2em;
+    background: #ed5a26;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    font-weight: 300;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    box-shadow: inset 0 -4px 0 rgba(0,0,0,0.1);
+}
+
+    .btn-slider:hover {
+        transition-duration: 0.5s;
+        background: #d85122;
+        color: #fff;
+    }
+
+.mosaic {
+    margin: 0 auto;
+    padding-top: 1.5em;
+}
+
+.tnbs {
+    text-align: center;
+    margin: 0 auto;
+}
+
+    .tnbs img {
+        margin: 0 auto;
+    }
+
+    .tnbs h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2em;
+        color: #0482d4;
+        margin-bottom: 2.5em;
+    }
+
+.tnb {
+    transition-duration: 0.5s;
+    display: block;
+}
+
+.tnb-active {
+}
+
+    .tnb-active img {
+        opacity: 0.5;
+        background: #f60;
+    }
+
+    .tnb-active h2 {
+        color: #aaa;
+    }
+
+.tnb:hover {
+    transition-duration: 0.5s;
+    opacity: 0.5;
+}
+
+.footer {
+}
+
+.footer-bg {
+    background: #fdfdfd;
+    border-top: 1px solid #eee;
+    padding: 2em 0;
+}
+
+.footer .credits-div {
+    padding-top: 15px;
+    color: #aaa;
+    text-align: right;
+    line-height: 2em;
+}
+
+.footer .img-logo-orpalis {
+    margin-right: 5px;
+}
+
+.footer .credits-orpalis {
+    padding-left: 8px;
+    font-size: 0.9em;
+}
+
+.footer p.compatible {
+    padding-top: 16px;
+    color: #aaa;
+}
+
+.footer .compatible, .footer ul {
+    text-align: center;
+}
+
+.footer li {
+    display: inline;
+    list-style: none;
+    padding-right: 1em;
+}
+
+.footer .browsers {
+    padding: 15px 15px 15px 25px;
+}
+
+.footer ul.browsers {
+    border-radius: 45px;
+    border: 1px solid #eee;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+    .slider {
+        min-height: 300px;
+    }
+
+    .img-slider {
+        padding-left: 0;
+    }
+
+    .texte-desc-slider {
+        padding: 0 0 0 2%;
+        /*width: inherit;
+		max-width: 450px;*/
+    }
+
+        .texte-desc-slider p {
+            font-family: arial, sans-serif;
+            color: #fff;
+            font-size: 14px;
+            line-height: 2em;
+        }
+
+        .texte-desc-slider h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            color: #fff;
+        }
+
+    .img-align-slider {
+        margin: 0 auto;
+    }
+}
+/* Large devices */
+@media (min-width: 992px) {
+    .texte-desc-slider {
+        padding: 8% 0 0 2%;
+    }
+
+    .img-slider {
+        padding-left: 15%;
+    }
+
+    .texte-desc-slider {
+        text-align: left;
+        padding-right: 3em;
+    }
+}
+/* Huge devices ! */
+@media (min-width: 2100px) {
+    .img-align-slider {
+        margin-left: 20%;
+        padding: 8% 0 0 0;
+    }
+}

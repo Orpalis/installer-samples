@@ -1,0 +1,3 @@
+- The sample requires vfp9
+- If you encounter the error message "Memo file frmMain.sct is missing or is invalid" Under the vfp IDE, please move the sample source code from the installation directory to a folder in which you have write access priviledge. IE: C:\myVfpDemo\.
+- We highly suggest to add the following line code in the init of your program: application.AutoYield = .F. 

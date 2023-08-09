@@ -1,0 +1,104 @@
+﻿@using DocuViewareCoreDemo;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DocuVieware - TWAIN Acquisition Demo.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="~/js/jquery-3.1.0.min.js"></script>
+    <link href="~/css/twain_acquisition.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="description_container">
+        <!-- Demo explanations -->
+        <p>
+            TWAIN acquisition can be done from the dedicated snap-in but also from a dialog window triggered by a dedicated toolbar button.<br />
+            This demo application shows both options.
+        </p>
+        <p>The very first time, DocuVieware will require the installation of a small software to connect to the TWAIN devices. This is a one-time step, once it has been installed it is silently started with Windows.</p>
+        <p>DocuVieware will then be able to trigger the device driver window so you can choose the acquisition settings you need.</p>
+        <p>Once the acquisition process is complete, you can handle the document like any other supported document format and click the "Generate PDF" button to download the resulat as a PDF/A-1b standard compliant document allowing long term archiving.</p>
+    </div>
+    <div id="application_container">
+        <div id="toolbar_container">
+            <!-- Toolbar -->
+            <button onclick="generatePDFA(); return false;">Generate PDF/A</button>
+        </div>
+        <div id="viewer_container">
+            @{
+                using (GdPicture14.WEB.DocuViewareControl docuVieware = new GdPicture14.WEB.DocuViewareControl(@ViewBag.SessionID, "DocuVieware1", Globals.SESSION_TIMEOUT)
+                {
+                    Locale = @ViewBag.Locale,
+                    Height = "100%",
+                    Width = "100%",
+                    DisableAnnotationDrawingModePanel = true,
+                    ForceScrollBars = false,
+                    AllowedExportFormats = "*",
+                    MaxUploadSize = 52428800,
+                    CollapsedSnapIn = true,
+                    EnableMouseModeButtons = false,
+                    EnableFileUploadButton = false,
+                    EnableLoadFromUriButton = false,
+                    EnablePrintButton = true,
+                    EnableSaveButton = true,
+                    ShowThumbnailsSnapIn = true,
+                    ShowBookmarksSnapIn = false,
+                    ShowTextSearchSnapIn = false,
+                    ShowAnnotationsSnapIn = true,
+                    EnableTwainAcquisitionButton = true,
+                    EnableThumbnailDragDrop = true
+                })
+                {
+                    docuVieware.RenderControl(Output);
+                }
+            }
+        </div>
+    </div>
+    <script>
+        // This function will trigger the custom action handled in TwainAcquisitionDemo.cs
+        // a callback function will be called upon generatePDFA success with result that
+        // contains binary data in the form of a base64 encoded string
+        function generatePDFA() {
+            if (DocuViewareAPI.GetPageCount() !== 0) {
+                var params = { FileData: "" };
+                DocuViewareAPI.PostCustomServerAction("DocuVieware1", true, "generatePDFA", params, function (result) {
+                    savePdfAFile("archive.pdf", base64ToPdfBlob(result));
+                });
+            }
+        }
+        // This function converts the base64 string to a PDF binary object
+        function base64ToPdfBlob(base64) {
+            var sliceSize = 1024;
+            var byteChars = window.atob(base64);
+            var byteArrays = [];
+            for (var offset = 0, len = byteChars.length; offset < len; offset += sliceSize) {
+                var slice = byteChars.slice(offset, offset + sliceSize);
+                var byteNumbers = new Array(slice.length);
+                for (var i = 0; i < slice.length; i++) {
+                    byteNumbers[i] = slice.charCodeAt(i);
+                }
+                var byteArray = new Uint8Array(byteNumbers);
+                byteArrays.push(byteArray);
+            }
+            return new Blob(byteArrays, { type: "application/pdf" });
+        }
+        // This function actually downloads the PDF binary object as a regular file
+        function savePdfAFile(name, data) {
+            if (data != null && navigator.msSaveBlob) {
+                return navigator.msSaveBlob(new Blob([data], { type: "data:attachment/pdf" }), name);
+            }
+            var url = window.URL.createObjectURL(new Blob([data], { type: "data:attachment/pdf" }));
+            var tempLink = $("<a download='" + name + "' href='" + url + "'></a>");
+            tempLink.appendTo('body');
+            tempLink[0].click();
+            tempLink.remove();
+        }
+    </script>
+</body>
+</html>

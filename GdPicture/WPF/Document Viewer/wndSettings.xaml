@@ -1,0 +1,110 @@
+﻿<Window x:Class="DocumentViewer.wndSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:self="clr-namespace:DocumentViewer"
+        Title="Settings" Height="357" Width="630" Loaded="Window_Loaded">
+    <Window.Resources>
+        <self:IntToStringConverter x:Key="IntToStringConverter" />
+        <self:MouseWheelToIntConverter x:Key="MouseWheelToIntConverter" />
+        <self:DocumentAlignmentToStringConverter x:Key="DocumentAlignmentToStringConverter" />
+        <self:DocumentPositionToStringConverter x:Key="DocumentPositionToStringConverter" />
+        <self:BitmapScalingModeToIntConverter x:Key="BitmapScalingModeToIntConverter" />
+    </Window.Resources>
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <GroupBox Header="General options" HorizontalAlignment="Left" Height="269" Margin="10,10,0,0" VerticalAlignment="Top" Width="291">
+            <Grid HorizontalAlignment="Left" Height="247" VerticalAlignment="Top" Width="279">
+                <Label Content="Zoom step" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Bitmap scaling mode" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,52,0,0"/>
+                <Label Content="Document Alignment" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,83,0,0"/>
+                <Label Content="Document Position" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,114,0,0"/>
+                <Label Content="Mouse wheele mode" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,145,0,0"/>
+                <TextBox x:Name="txtZoomStep" TextChanged="txtZoomStep_TextChanged" PreviewTextInput="txtZoomStep_PreviewTextInput" Height="20" Width="50" Margin="72,6,157,221" Text="{Binding ZoomStep, Converter={StaticResource IntToStringConverter}, Mode=OneWay}"/>
+                <Button x:Name="btnZoomStepUp"  Content="˄" Width="20" Height="20" Margin="122,6,137,221" Click="btnZoomStepUp_Click"   />
+                <Button x:Name="btnZoomStepDown"   Content="˅" Width="20"  Height="20" Margin="142,6,117,221" Click="btnZoomStepDown_Click" />
+                <CheckBox Name="chkContinuousViewMode" FlowDirection="RightToLeft" IsChecked="{Binding ContinuousViewMode, Mode=OneWay}" HorizontalAlignment="Left" Height="21" Margin="0,31,0,0" VerticalAlignment="Top" Width="148">
+                    <CheckBox.Resources>
+                        <Style TargetType="{x:Type Path}">
+                            <Setter Property="FlowDirection" Value="LeftToRight"/>
+                        </Style>
+                    </CheckBox.Resources>
+                    <TextBlock FlowDirection="LeftToRight" Text="Continuous view mode" />
+                </CheckBox>
+                <ComboBox Name="cbBitmapScalingMode" HorizontalAlignment="Left" Height="21" Margin="128,57,0,0" VerticalAlignment="Top" Width="102" SelectedIndex="{Binding ScalingMode, Converter={StaticResource BitmapScalingModeToIntConverter}, Mode=OneWay}" />
+                <ComboBox x:Name="cbDocumentAlignment" HorizontalAlignment="Left" Height="21" Margin="128,88,0,0" VerticalAlignment="Top" Width="102" SelectedItem="{Binding DocumentAlignment, Converter={StaticResource DocumentAlignmentToStringConverter}, Mode=OneWay}" />
+                <ComboBox x:Name="cbDocumentPosition" HorizontalAlignment="Left" Height="21" Margin="128,119,0,0" VerticalAlignment="Top" Width="102" SelectedItem="{Binding DocumentPosition, Converter={StaticResource DocumentPositionToStringConverter}, Mode=OneWay}" />
+                <ComboBox x:Name="cbMouseWheelMode" HorizontalAlignment="Left" Height="21" Margin="128,150,0,0" VerticalAlignment="Top" Width="102" SelectedIndex="{Binding MouseWheelMode, Converter={StaticResource MouseWheelToIntConverter}, Mode=OneWay}" />
+                <CheckBox x:Name="chkEnableMenu" FlowDirection="RightToLeft" IsChecked="{Binding EnableMenu, Mode=OneWay}"  HorizontalAlignment="Left" Height="21" Margin="0,216,0,0" VerticalAlignment="Top" Width="152">
+                    <CheckBox.Resources>
+                        <Style TargetType="{x:Type Path}">
+                            <Setter Property="FlowDirection" Value="LeftToRight"/>
+                        </Style>
+                    </CheckBox.Resources>
+                    <TextBlock FlowDirection="LeftToRight" Text="Enable contextual menu" />
+                </CheckBox>
+                <Label Content="Background color" HorizontalAlignment="Left" Margin="0,185,0,0" VerticalAlignment="Top" Width="Auto"/>
+                <Button Name="btnBackgroundColor" Content="" HorizontalAlignment="Left" Height="24" Margin="108,185,0,0" VerticalAlignment="Top" Width="28" Background="#FF565656" Click="btnBackgroundColor_Click"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="PDF viewing options" HorizontalAlignment="Left" Height="212" Margin="322,10,0,0" VerticalAlignment="Top" Width="281">
+            <Grid HorizontalAlignment="Left" Height="191" VerticalAlignment="Top" Width="269" Margin="0,0,0,-2">
+                <CheckBox x:Name="chkPDFDisplayFormFields" IsChecked="{Binding DisplayFormfields, Mode=OneWay}" FlowDirection="RightToLeft"  HorizontalAlignment="Left" Height="21" Margin="0,15,0,0" VerticalAlignment="Top" Width="126">
+                    <CheckBox.Resources>
+                        <Style TargetType="{x:Type Path}">
+                            <Setter Property="FlowDirection" Value="LeftToRight"/>
+                        </Style>
+                    </CheckBox.Resources>
+                    <TextBlock FlowDirection="LeftToRight" Text=" Display form fields" />
+                </CheckBox>
+                <CheckBox x:Name="chkPDFEnableFileLinks" IsChecked="{Binding EnableFileLinks, Mode=OneWay}" FlowDirection="RightToLeft"  HorizontalAlignment="Left" Height="21" Margin="0,41,0,0" VerticalAlignment="Top" Width="110">
+                    <CheckBox.Resources>
+                        <Style TargetType="{x:Type Path}">
+                            <Setter Property="FlowDirection" Value="LeftToRight"/>
+                        </Style>
+                    </CheckBox.Resources>
+                    <TextBlock FlowDirection="LeftToRight" Text=" Enable file links" />
+                </CheckBox>
+                <CheckBox x:Name="chkPDFEnableLinks" IsChecked="{Binding EnableLinks, Mode=OneWay}" FlowDirection="RightToLeft"  HorizontalAlignment="Left" Height="21" Margin="0,67,0,0" VerticalAlignment="Top" Width="91">
+                    <CheckBox.Resources>
+                        <Style TargetType="{x:Type Path}">
+                            <Setter Property="FlowDirection" Value="LeftToRight"/>
+                        </Style>
+                    </CheckBox.Resources>
+                    <TextBlock FlowDirection="LeftToRight" Text=" Enable links" />
+                </CheckBox>
+                <CheckBox x:Name="chkPDFIncreaseTextContrast" IsChecked="{Binding IncreaseTextContrast, Mode=OneWay}" FlowDirection="RightToLeft"  HorizontalAlignment="Left" Height="21" Margin="0,93,0,0" VerticalAlignment="Top" Width="143">
+                    <CheckBox.Resources>
+                        <Style TargetType="{x:Type Path}">
+                            <Setter Property="FlowDirection" Value="LeftToRight"/>
+                        </Style>
+                    </CheckBox.Resources>
+                    <TextBlock FlowDirection="LeftToRight" Text="Increase text contrast" />
+                </CheckBox>
+                <Label Content="PDF rasterizer engine" HorizontalAlignment="Left" Margin="5,119,0,0" VerticalAlignment="Top"/>
+                <ComboBox Name="cbPDFRenderingEngine" HorizontalAlignment="Left" Height="22" Margin="132,123,0,0" VerticalAlignment="Top" Width="101" SelectedItem="{Binding RenderingEngine, Converter={StaticResource RenderingEngineToStringConverter}, Mode=OneWay}" />
+                <CheckBox x:Name="chkPDFVerifyDigitalCertificates" IsChecked="{Binding VerifyDigitalCertificates, Mode=OneWay}" FlowDirection="RightToLeft"  HorizontalAlignment="Left" Height="21" Margin="5,160,0,0" VerticalAlignment="Top" Width="153">
+                    <CheckBox.Resources>
+                        <Style TargetType="{x:Type Path}">
+                            <Setter Property="FlowDirection" Value="LeftToRight"/>
+                        </Style>
+                    </CheckBox.Resources>
+                    <TextBlock FlowDirection="LeftToRight" Text="Verify digital certificates" />
+                </CheckBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Image viewing options" HorizontalAlignment="Left" Height="52" Margin="322,227,0,0" VerticalAlignment="Top" Width="291">
+            <Grid HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="279">
+                <CheckBox x:Name="chkEnableICM" IsChecked="{Binding EnableICM, Mode=OneWay}" FlowDirection="RightToLeft"  HorizontalAlignment="Left" Height="21" Margin="0, 7, 0, 0" VerticalAlignment="Top" Width="91">
+                    <CheckBox.Resources>
+                        <Style TargetType="{x:Type Path}">
+                            <Setter Property="FlowDirection" Value="LeftToRight"/>
+                        </Style>
+                    </CheckBox.Resources>
+                    <TextBlock FlowDirection="LeftToRight" Text="Enable ICM" />
+                </CheckBox>
+            </Grid>
+        </GroupBox>
+        <Button Content="Apply" HorizontalAlignment="Left" Height="20" Margin="513,294,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click"/>
+
+    </Grid>
+</Window>

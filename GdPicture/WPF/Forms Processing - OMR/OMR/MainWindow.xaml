@@ -1,0 +1,44 @@
+﻿<Window x:Class="Csharp_OMR_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14" 
+        Title="GdPicture Optical Mark Recognition WPF" Height="625" Width="815" Loaded="Window_Loaded"  >
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="269*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Menu IsMainMenu="True" BorderBrush="Black" BorderThickness="2">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open" Click="Open_Click"/>
+                <MenuItem Header="_Close" Click="Close_Click"/>
+                <MenuItem Header="_Exit" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Mode">
+                <MenuItem Header="Default" Name="defaultOMR" IsCheckable="True"  Checked="defaultOMR_Checked" Unchecked="defaultOMR_Unchecked"/>
+                <MenuItem Header="Oval" Name="ovalOMR" IsCheckable="True" Checked="ovalOMR_Checked"  Unchecked="ovalOMR_Unchecked" />
+            </MenuItem>
+        </Menu>
+        <DockPanel   x:Name="GdPicturePanel"  LastChildFill="False" Margin="3,0,3,0" Grid.Row="1" >
+            <Grid x:Name="GdPictureGrid" HorizontalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=GdPicturePanel, Mode=OneWay}" Background="LightGray" >
+                <GdPicture14:GdViewer x:Name="GdViewer1" Grid.Column="0" Margin="0" Canvas.ZIndex="1"  AnimateGIF="False" Background="Black"  ContinuousViewMode="True" DocumentAlignment="DocumentAlignmentMiddleCenter" DocumentPosition="DocumentPositionMiddleCenter" EnableICM="False" EnableMouseWheel="True" MouseButtonForMouseMode="MouseButtonLeft" MouseMode="MouseModeAreaSelection" MouseWheelMode="MouseWheelModeZoom" ZoomMode="ZoomModeFitToViewer" MouseUp="GdViewer1_MouseUp" BorderBrush="Gray"/>
+            </Grid>
+        </DockPanel>
+        <DockPanel   x:Name="InfoPanel"  LastChildFill="False" Margin="3,0,3,0" Grid.Row="4">
+            <Grid x:Name="InfoGrid" Background="white" HorizontalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=InfoPanel, Mode=OneWay}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="134*"/>
+                    <ColumnDefinition Width="48"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Open an image, then draw a bounding box around checkbox, fill-in-area  or multiple choice examination form" Grid.Column="0" Foreground="Black" VerticalContentAlignment="Center"/>
+                <Button Content="-" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="28" Click="Button_Click_1" />
+                <TextBlock Name="ZoomInfo" Grid.Column="2" HorizontalAlignment="Center" Text="{Binding ElementName=GdViewer1, Path=Zoom, StringFormat={} {0:P}}" VerticalAlignment="Center" />
+                <Button Content="+" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="28" Click="Button_Click" />
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

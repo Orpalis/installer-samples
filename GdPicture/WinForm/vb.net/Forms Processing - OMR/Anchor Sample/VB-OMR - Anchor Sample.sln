@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB-OMR - Anchor Sample", "VB-OMR - Anchor Sample.vbproj", "{EF29CC27-9229-46FC-BF5B-0547B35DEEA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF29CC27-9229-46FC-BF5B-0547B35DEEA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF29CC27-9229-46FC-BF5B-0547B35DEEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF29CC27-9229-46FC-BF5B-0547B35DEEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF29CC27-9229-46FC-BF5B-0547B35DEEA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2623B06F-6AF8-410C-B215-F07451807C44}
+	EndGlobalSection
+EndGlobal

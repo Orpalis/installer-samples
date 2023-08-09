@@ -1,0 +1,7 @@
+#imageProcessingBrightnessDivDocuVieware1 label:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+#imageProcessingBrightnessDivDocuVieware1 label:not(:first-child) {
+    margin-top: 15px;
+}

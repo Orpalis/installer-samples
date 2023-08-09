@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB_TIFF to PDF", "VB_TIFF to PDF.vbproj", "{CE1D318C-8748-44E6-BDD6-7E4ED133B2B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE1D318C-8748-44E6-BDD6-7E4ED133B2B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE1D318C-8748-44E6-BDD6-7E4ED133B2B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE1D318C-8748-44E6-BDD6-7E4ED133B2B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE1D318C-8748-44E6-BDD6-7E4ED133B2B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {725AF18B-A7F6-44A4-8A57-108BEAD2B557}
+	EndGlobalSection
+EndGlobal
