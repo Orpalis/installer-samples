@@ -45,8 +45,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GdPicture.NET.14.WEB.DocuVieware, Version=3.2.38.0, Culture=neutral, PublicKeyToken=25f8997d3c36b11a">
-      <HintPath>packages\DocuVieware.3.2.38\lib\net46\GdPicture.NET.14.WEB.DocuVieware.dll</HintPath>
+    <Reference Include="GdPicture.NET.14.WEB.DocuVieware, Version=3.2.45.0, Culture=neutral, PublicKeyToken=25f8997d3c36b11a">
+      <HintPath>packages\DocuVieware.3.2.45\lib\net46\GdPicture.NET.14.WEB.DocuVieware.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -312,12 +312,12 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="packages\GdPicture.runtimes.windows.14.2.38\build\GdPicture.runtimes.windows.targets" Condition="Exists('packages\GdPicture.runtimes.windows.14.2.38\build\GdPicture.runtimes.windows.targets')" />
+  <Import Project="packages\GdPicture.runtimes.windows.14.2.45\build\GdPicture.runtimes.windows.targets" Condition="Exists('packages\GdPicture.runtimes.windows.14.2.45\build\GdPicture.runtimes.windows.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\GdPicture.runtimes.windows.14.2.38\build\GdPicture.runtimes.windows.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\GdPicture.runtimes.windows.14.2.38\build\GdPicture.runtimes.windows.targets'))" />
+    <Error Condition="!Exists('packages\GdPicture.runtimes.windows.14.2.45\build\GdPicture.runtimes.windows.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\GdPicture.runtimes.windows.14.2.45\build\GdPicture.runtimes.windows.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

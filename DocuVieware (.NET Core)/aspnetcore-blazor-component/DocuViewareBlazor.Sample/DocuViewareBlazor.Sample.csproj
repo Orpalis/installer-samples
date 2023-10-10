@@ -9,7 +9,7 @@
 
 
 	<ItemGroup>
-	  <PackageReference Include="DocuVieware.API" Version="3.2.38" />
+	  <PackageReference Include="DocuVieware.API" Version="3.2.45" />
 	</ItemGroup>
 
 	<ItemGroup>

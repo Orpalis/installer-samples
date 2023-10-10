@@ -115,8 +115,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GdPicture.NET.14, Version=14.2.38.0, Culture=neutral, PublicKeyToken=f52a2e60ad468dbb">
-      <HintPath>packages\GdPicture.14.2.38\lib\net45\GdPicture.NET.14.dll</HintPath>
+    <Reference Include="GdPicture.NET.14, Version=14.2.45.0, Culture=neutral, PublicKeyToken=f52a2e60ad468dbb">
+      <HintPath>packages\GdPicture.14.2.45\lib\net45\GdPicture.NET.14.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System">
@@ -192,11 +192,11 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
-  <Import Project="packages\GdPicture.runtimes.windows.14.2.38\build\GdPicture.runtimes.windows.targets" Condition="Exists('packages\GdPicture.runtimes.windows.14.2.38\build\GdPicture.runtimes.windows.targets')" />
+  <Import Project="packages\GdPicture.runtimes.windows.14.2.45\build\GdPicture.runtimes.windows.targets" Condition="Exists('packages\GdPicture.runtimes.windows.14.2.45\build\GdPicture.runtimes.windows.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\GdPicture.runtimes.windows.14.2.38\build\GdPicture.runtimes.windows.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\GdPicture.runtimes.windows.14.2.38\build\GdPicture.runtimes.windows.targets'))" />
+    <Error Condition="!Exists('packages\GdPicture.runtimes.windows.14.2.45\build\GdPicture.runtimes.windows.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\GdPicture.runtimes.windows.14.2.45\build\GdPicture.runtimes.windows.targets'))" />
   </Target>
 </Project>
