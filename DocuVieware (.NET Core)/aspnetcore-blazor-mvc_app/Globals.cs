@@ -23,7 +23,7 @@ namespace docuviewareBlazorDemo
 
         public static string GetDocumentsDirectory()
         {
-            return Path.Combine(m_rootDirectory , @"wwwroot\documents");
+            return Path.Combine(m_rootDirectory , "wwwroot", "documents");
         }
 
 
