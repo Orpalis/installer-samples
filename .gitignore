@@ -2,3 +2,5 @@ obj/
 bin/
 .vs/
 packages/
+.DS_Store
+.idea/
