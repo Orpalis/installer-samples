@@ -3,7 +3,8 @@
     <UseWpf>true</UseWpf>
     <UseWinForms>true</UseWinForms>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net462</TargetFramework>
+    <TargetFrameworks>net462;net8.0-windows;net10.0-windows</TargetFrameworks>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <RootNamespace>Csharp_Annotations.WPF</RootNamespace>
     <AssemblyName>Csharp-Annotations.WPF</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -22,10 +23,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Drawing" />
     <Reference Include="UIAutomationProvider" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" Exclude="App.xaml" />
-    <ApplicationDefinition Include="App.xaml" SubType="Designer" Generator="MSBuild:Compile" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\**" />

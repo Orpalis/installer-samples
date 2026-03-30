@@ -626,7 +626,7 @@ namespace DocumentViewer
         }
         private void UpdateMainUi()
         {
-            this.Title = "GdPicture.NET " + string.Format(CultureInfo.InvariantCulture, "{0:##.#\\.##}", GdPicture14.LicenseManager.GetVersion()) + " - Document Viewer Demo";
+            this.Title = "GdPicture.NET " + string.Format(CultureInfo.InvariantCulture, "{0:##.#\\.##}", new GdPicture14.LicenseManager().GetVersion()) + " - Document Viewer Demo";
             if (GdViewer1.PageCount == 0)
             {
                 tbCurrentPage.Text = "0";

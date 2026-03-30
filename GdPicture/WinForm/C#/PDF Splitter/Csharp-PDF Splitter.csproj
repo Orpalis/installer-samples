@@ -2,7 +2,8 @@
   <PropertyGroup>
     <UseWinForms>true</UseWinForms>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net462</TargetFramework>
+    <TargetFrameworks>net462;net8.0-windows;net10.0-windows</TargetFrameworks>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <RootNamespace>pdf_splitter</RootNamespace>
     <AssemblyName>pdf_splitter</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>

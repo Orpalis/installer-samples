@@ -27,7 +27,7 @@ namespace twain_sample
             m_GdPictureImaging.TwainImagePreview += TwainImagePreview;
 
             // You can set the language of the Twain UI here by selecting the language and the country you prefer.
-            //oGdPictureImaging.TwainSetApplicationInfo(14, 0, TwainLanguage.TWLG_GER, TwainCountry.TWCY_GERMANY, GdPicture14.LicenseManager.GetVersion().ToString(), "Orpalis", "GdPicture", "GdPicture.NET");
+            //oGdPictureImaging.TwainSetApplicationInfo(14, 0, TwainLanguage.TWLG_GER, TwainCountry.TWCY_GERMANY, new GdPicture14.LicenseManager().GetVersion().ToString(), "Orpalis", "GdPicture", "GdPicture.NET");
         }
 
 

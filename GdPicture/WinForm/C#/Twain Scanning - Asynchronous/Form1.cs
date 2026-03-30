@@ -38,7 +38,7 @@ namespace async_scanning
             _backGroundWorker.WorkerSupportsCancellation = false;
 
             // You can set the language of the Twain UI here by selecting the language and the country you prefer.
-            //_gdPictureImaging.TwainSetApplicationInfo(14, 0, TwainLanguage.TWLG_GER, TwainCountry.TWCY_GERMANY, GdPicture14.LicenseManager.GetVersion().ToString(), "Orpalis", "GdPicture", "GdPicture.NET");
+            //_gdPictureImaging.TwainSetApplicationInfo(14, 0, TwainLanguage.TWLG_GER, TwainCountry.TWCY_GERMANY, new GdPicture14.LicenseManager().GetVersion().ToString(), "Orpalis", "GdPicture", "GdPicture.NET");
         }
 
 
