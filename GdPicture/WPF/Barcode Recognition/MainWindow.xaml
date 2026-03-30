@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Csharp_Barcode_Recognition.WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14" 
+        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14.WPF"
         xmlns:self="clr-namespace:Csharp_Barcode_Recognition.WPF"
         Title="GdPicture Barcode Recognition WPF" Height="761.03" Width="1048" Loaded="Window_Loaded">
 

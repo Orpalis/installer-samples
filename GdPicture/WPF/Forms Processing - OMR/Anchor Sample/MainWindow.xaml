@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Csharp_OMR___Anchor_Sample.WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14"  
+        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14.WPF"
         Title="GdPicture Anchor Sample WPF" TextBlock.TextAlignment="Center" Height="635" Width="960" Loaded="Window_Loaded"  >
     <Grid>
         <TabControl Name="TabControl1" TabStripPlacement="Bottom" SelectionChanged="TabControl_SelectionChanged">

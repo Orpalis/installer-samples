@@ -8,6 +8,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="GdPicture" Version="*" />
+    <PackageReference Include="GdPicture.WPF" Version="*" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />

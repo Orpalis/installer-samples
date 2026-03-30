@@ -1,7 +1,7 @@
 ﻿<Window x:Name="WindowMain" x:Class="DicomViewer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:gdpicture="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14"
+        xmlns:gdpicture="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14.WPF"
         xmlns:l="clr-namespace:WpfDwopDownMenuButton"
         xmlns:self="clr-namespace:DicomViewer"
         

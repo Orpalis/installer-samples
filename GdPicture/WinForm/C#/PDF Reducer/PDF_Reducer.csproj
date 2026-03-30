@@ -9,6 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="GdPicture" Version="*" />
+    <PackageReference Include="GdPicture.WinForms" Version="*" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />

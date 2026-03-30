@@ -1,8 +1,8 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14" 
-        xmlns:GdPicture14WindowsForms="clr-namespace:GdPicture14;assembly=GdPicture.NET.14" 
+        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14.WPF" 
+        xmlns:GdPicture14WindowsForms="clr-namespace:GdPicture14;assembly=GdPicture.NET.14.WinForms" 
         x:Class="Csharp_Annotations.WPF.MainWindow"
         xmlns:self="clr-namespace:Csharp_Annotations.WPF"
         Title="GdPicture Annotations WPF" Height="532" Width="1850" WindowState="Maximized" Loaded="Window_Loaded"  >

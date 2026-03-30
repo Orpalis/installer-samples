@@ -1,7 +1,7 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14"
+        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14.WPF"
         xmlns:self="clr-namespace:DocumentViewer"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="DocumentViewer.MainWindow"
         Title="GdPicture.NET"  Icon="resources/gdpicture.ico" Width="1280" Height="768" WindowState="Maximized" UseLayoutRounding="True" Loaded="Window_Loaded" DataContext="{Binding RelativeSource={RelativeSource Self}}">

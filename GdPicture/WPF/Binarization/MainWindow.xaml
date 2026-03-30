@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Csharp_Binarization.WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14"  
+        xmlns:GdPicture14="clr-namespace:GdPicture14.WPF;assembly=GdPicture.NET.14.WPF"
         Title="GdPicture Binarization WPF" Height="592.077" Width="847" Loaded="Window_Loaded">
     <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
