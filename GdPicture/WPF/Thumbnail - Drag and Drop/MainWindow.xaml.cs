@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +30,7 @@ namespace Thumbnail_WPF___Drag_and_Drop
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LicenseManager licenseManager = new LicenseManager();
-            licenseManager.RegisterKEY("XXXX"); // Please, replace XXXX by a valid demo or commercial license key. 
+            licenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
             // Go to http://evaluation-gdpicture.com to get a 1 month trial key unlocking all features of the toolkit.
 
             thumbnailExWPF1.AllowDrop = true;

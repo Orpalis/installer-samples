@@ -4,7 +4,7 @@ Imports System.IO
 Public Class Form1
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim oLicenseManager As New GdPicture14.LicenseManager()
-        oLicenseManager.RegisterKEY("XXX") 'Please replace XXX by a valid commercial or demo key.
+        oLicenseManager.RegisterKEY("") ' Empty string starts a trial session of the product.
     End Sub
 
 

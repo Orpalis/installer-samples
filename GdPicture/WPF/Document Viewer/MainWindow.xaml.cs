@@ -1,4 +1,4 @@
-﻿using GdPicture14;
+using GdPicture14;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -42,7 +42,7 @@ namespace DocumentViewer
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GdPicture14.LicenseManager oLicenceManager = new GdPicture14.LicenseManager();
-            oLicenceManager.RegisterKEY("XXXX"); //Please, replace XXXX by a valid demo or commercial license key.
+            oLicenceManager.RegisterKEY(""); // Empty string starts a trial session of the product.
             this.DataContext = this;
             BookmarksTree1.GdViewer = GdViewer1;
             SelectSnapIn(0);
@@ -626,7 +626,7 @@ namespace DocumentViewer
         }
         private void UpdateMainUi()
         {
-            this.Title = "GdPicture.NET " + string.Format(CultureInfo.InvariantCulture, "{0:##.#\\.##}", GdViewer1.GetVersion()) + " - Document Viewer Demo";
+            this.Title = "GdPicture.NET " + string.Format(CultureInfo.InvariantCulture, "{0:##.#\\.##}", GdPicture14.LicenseManager.GetVersion()) + " - Document Viewer Demo";
             if (GdViewer1.PageCount == 0)
             {
                 tbCurrentPage.Text = "0";

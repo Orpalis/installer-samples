@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <UseWpf>true</UseWpf>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net462</TargetFramework>
     <RootNamespace>Csharp_OMR___Anchor_Sample.WPF</RootNamespace>

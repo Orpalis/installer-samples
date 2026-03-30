@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using GdPicture14;
 
@@ -15,7 +15,7 @@ namespace CSharp_PDFSigner
         private void Form1_Load(object sender, EventArgs e)
         {
             GdPicture14.LicenseManager oLicenceManager = new GdPicture14.LicenseManager(); //Go to http://evaluation-gdpicture.com to get a 1 month trial key unlocking all features of the toolkit.
-            oLicenceManager.RegisterKEY("XXX");//Please, replace XXX by a valid demo or commercial license key. 
+            oLicenceManager.RegisterKEY("");// Empty string starts a trial session of the product.
 
             cmdSIgnaturePanel.Enabled = false;
 

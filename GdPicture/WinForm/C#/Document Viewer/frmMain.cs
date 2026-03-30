@@ -34,7 +34,7 @@ namespace Document_Viewer
         private void frmMain_Load(object sender, EventArgs e)
         {
             LicenseManager oLicenceManager = new LicenseManager();
-            oLicenceManager.RegisterKEY("XXXX"); //Please, replace XXXX by a valid demo or commercial license key.
+            oLicenceManager.RegisterKEY(""); // Empty string starts a trial session of the product.
 
             BookmarksTree1.GdViewer = GdViewer1;
 

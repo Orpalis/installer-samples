@@ -1,4 +1,4 @@
-﻿Imports GdPicture14
+Imports GdPicture14
 
 Public Class Form1
 
@@ -41,7 +41,7 @@ Public Class Form1
         LoadSettings()
 
         Dim licenseManager As GdPicture14.LicenseManager = New GdPicture14.LicenseManager()
-        licenseManager.RegisterKEY("XXX") ' Please replace XXX by a demo or commercial key.
+        licenseManager.RegisterKEY("") ' Empty string starts a trial session of the product.
 
         _gdPictureImaging = New GdPictureImaging()
         _gdPictureOcr = New GdPictureOCR()

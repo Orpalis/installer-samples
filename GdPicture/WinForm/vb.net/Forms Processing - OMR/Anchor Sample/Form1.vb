@@ -24,7 +24,7 @@ Public Class Form1
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim licMgr As New GdPicture14.LicenseManager()
-        licMgr.RegisterKEY("XXX") 'Please replace XXX by a valid demo or commercial key.
+        licMgr.RegisterKEY("") ' Empty string starts a trial session of the product.
     End Sub
 
 

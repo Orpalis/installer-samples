@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,7 +50,7 @@ namespace Csharp_OMR___Anchor_Sample.WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LicenseManager oLicenceManager = new LicenseManager(); //Go to http://evaluation-gdpicture.com to get a 1 month trial key unlocking all features of the toolkit.
-            oLicenceManager.RegisterKEY("XXXX");//Please, replace XXXX by a valid demo or commercial license key. 
+            oLicenceManager.RegisterKEY("");// Empty string starts a trial session of the product.
         }
 
         private void wCount_TextChanged(object sender, TextChangedEventArgs e)

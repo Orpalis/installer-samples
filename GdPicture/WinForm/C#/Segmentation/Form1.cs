@@ -1,4 +1,4 @@
-﻿using GdPicture14;
+using GdPicture14;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -27,7 +27,7 @@ namespace Segmenter
         private void Form1_Load(object sender, EventArgs e)
         {
             LicenseManager licenseManager = new LicenseManager();
-            licenseManager.RegisterKEY("XXX"); //Please replace XXX by a valid demo or commercial key.
+            licenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
 
             _gdPictureImaging = new GdPictureImaging();
             _gdPictureSegmenter = new GdPictureSegmenter();

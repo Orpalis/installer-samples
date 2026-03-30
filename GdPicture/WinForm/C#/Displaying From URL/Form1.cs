@@ -11,7 +11,7 @@ namespace Displaying_From_URL
         private void Form1_Load(System.Object eventSender, System.EventArgs eventArgs)
         {
             LicenseManager oLicenseManager = new LicenseManager(); //Go to http://www.gdpicture.com/download-gdpicture/ to get a 1 month trial key unlocking all features of the toolkit.
-            oLicenseManager.RegisterKEY("XXXX"); //Please, replace XXXX by a valid demo or commercial license key.
+            oLicenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
         }
 
 

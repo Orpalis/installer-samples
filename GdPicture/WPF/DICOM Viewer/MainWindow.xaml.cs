@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Windows;
@@ -60,7 +60,7 @@ namespace DicomViewer
         {
             InitializeComponent();
 
-            new GdPicture14.LicenseManager().RegisterKEY("XXX"); //Please replace XXX by a valid demo or commercial key
+            new GdPicture14.LicenseManager().RegisterKEY(""); // Empty string starts a trial session of the product.
 
             sliderSpeed.Value = Config.speed; //we should use databinding
             ThumbnailEx1.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 58, 58, 58));

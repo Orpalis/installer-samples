@@ -22,12 +22,12 @@ namespace twain_sample
                 MessageBox.Show("Warning: The application is running in 64-bit mode. To be able to handle 32-bit TWAIN drivers you will have to target it to 32-bit mode.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             LicenseManager oLicenseManager = new LicenseManager(); //Go to http://www.gdpicture.com/download-gdpicture/ to get a 1 month trial key unlocking all features of the toolkit.
-            oLicenseManager.RegisterKEY("XXX"); //Please, replace XXX by a valid demo or commercial license key.
+            oLicenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
 
             m_GdPictureImaging.TwainImagePreview += TwainImagePreview;
 
             // You can set the language of the Twain UI here by selecting the language and the country you prefer.
-            //oGdPictureImaging.TwainSetApplicationInfo(14, 0, TwainLanguage.TWLG_GER, TwainCountry.TWCY_GERMANY, oLicenseManager.GetVersion().ToString(), "Orpalis", "GdPicture", "GdPicture.NET");
+            //oGdPictureImaging.TwainSetApplicationInfo(14, 0, TwainLanguage.TWLG_GER, TwainCountry.TWCY_GERMANY, GdPicture14.LicenseManager.GetVersion().ToString(), "Orpalis", "GdPicture", "GdPicture.NET");
         }
 
 

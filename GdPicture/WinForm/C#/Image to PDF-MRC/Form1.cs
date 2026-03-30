@@ -17,7 +17,7 @@ namespace Image2PDFMRC
         public void Form1_Load(Object sender, EventArgs e)
         {
             LicenseManager licenseManager = new LicenseManager();
-            licenseManager.RegisterKEY("XXX"); //Please replace XXX by a valid commercial or demo key.
+            licenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
             cmbPDFConformance.SelectedIndex = 9; // PDF 1.5.
         }
 

@@ -1,4 +1,4 @@
-﻿Imports System.Collections.Generic
+Imports System.Collections.Generic
 Imports System.IO
 Imports Thread = System.Threading.Thread
 Imports GdPicture14
@@ -136,7 +136,7 @@ Public Class clsWorkerThread
                     Dim time As Date = Date.Now
                     Dim oGdPictureImaging As New GdPictureImaging
                     Dim oLicenseManager As New GdPicture14.LicenseManager() 'Go to http://www.gdpicture.com/download-gdpicture/ to get a 1 month trial key unlocking all features of the toolkit.
-                    oLicenseManager.RegisterKEY("XXXX") 'Please, replace XXXX by a valid demo or commercial license key.
+                    oLicenseManager.RegisterKEY("") ' Empty string starts a trial session of the product.
                     If GdPictureDocumentUtilities.GetDocumentFormatFromFileName(inFile) = GdPicture14.DocumentFormat.DocumentFormatPDF Then
                         'PDF mode
                         Dim outPDF As New GdPicturePDF

@@ -1,5 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <UseWpf>true</UseWpf>
+    <UseWinForms>true</UseWinForms>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net462</TargetFramework>
     <RootNamespace>Csharp_Annotations.WPF</RootNamespace>

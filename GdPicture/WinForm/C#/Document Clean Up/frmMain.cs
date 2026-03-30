@@ -73,7 +73,7 @@ namespace DocumentCleanUp
         private void frmMain_Load(object sender, EventArgs e)
         {
             GdPicture14.LicenseManager oLicenceManager = new GdPicture14.LicenseManager();
-            oLicenceManager.RegisterKEY("XXXX"); //Please, replace XXXX by a valid demo or commercial license key.
+            oLicenceManager.RegisterKEY(""); // Empty string starts a trial session of the product.
 
             tcLeftPanel.Appearance = TabAppearance.FlatButtons;
             tcLeftPanel.ItemSize = new Size(0, 1);

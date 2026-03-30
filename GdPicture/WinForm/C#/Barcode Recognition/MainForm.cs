@@ -19,7 +19,7 @@ namespace barcode_recognition
         private void Form1_Load(object eventSender, EventArgs eventArgs)
         {
             LicenseManager oLicenseManager = new LicenseManager();
-            oLicenseManager.RegisterKEY("XXX"); //Please, replace XXXX by a valid demo or commercial license key.
+            oLicenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
             pan1Dtypes.Visible = false;
             Label7.Visible = false;
         }

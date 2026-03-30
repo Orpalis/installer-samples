@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using GdPicture14;
@@ -18,7 +18,7 @@ namespace barcode_write
         private void Form1_Load(object sender, EventArgs e)
         {
             LicenseManager oLicenceManager = new LicenseManager();
-            oLicenceManager.RegisterKEY("XXXX"); //Please, replace XXXX by a valid demo or commercial license key.
+            oLicenceManager.RegisterKEY(""); // Empty string starts a trial session of the product.
 
             comboBox1.SelectedIndex = 0;
 

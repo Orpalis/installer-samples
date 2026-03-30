@@ -72,7 +72,7 @@ public static Form1 Default
 		public void Form1_Load(System.Object sender, System.EventArgs e)
 		{
 			LicenseManager oLicenseManager = new LicenseManager(); //Go to http://www.gdpicture.com/download-gdpicture/ to get a 1 month trial key unlocking all features of the toolkit.
-			oLicenseManager.RegisterKEY("XXX"); //Please, replace XXX by a valid demo or commercial license key.
+			oLicenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
 			ComboBox1.Text = "AUTO";
 		}
 		

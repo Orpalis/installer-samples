@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <UseWpf>true</UseWpf>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net462</TargetFramework>
     <RootNamespace>Csharp_Display_From_URL.WPF</RootNamespace>

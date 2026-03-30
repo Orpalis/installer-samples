@@ -12,7 +12,7 @@ Public Class Form1
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Dim oLicenseManager As New GdPicture14.LicenseManager()
-        oLicenseManager.RegisterKEY("XXX") 'Please replace XXX by a valid demo or commercial key.
+        oLicenseManager.RegisterKEY("") ' Empty string starts a trial session of the product.
 
         txtDictsPath.Text = oLicenseManager.GetRedistPath() + "OCR\"
 

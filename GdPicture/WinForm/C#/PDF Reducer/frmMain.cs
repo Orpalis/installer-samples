@@ -29,7 +29,7 @@ namespace pdfReducer
 
         public frmMain()
         {
-            new GdPicture14.LicenseManager().RegisterKEY("XXXX"); //Please, replace XXXX by a valid demo or commercial license key.
+            new GdPicture14.LicenseManager().RegisterKEY(""); // Empty string starts a trial session of the product.
 
             try
             {

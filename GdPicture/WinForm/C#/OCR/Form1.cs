@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -31,7 +31,7 @@ namespace Ocr
         private void Form1_Load(object sender, EventArgs e)
         {
             LicenseManager licenseManager = new LicenseManager();
-            licenseManager.RegisterKEY("XXX");
+            licenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
             //Please replace XXX by a valid demo or commercial key.
 
             _gdPictureImaging = new GdPictureImaging();

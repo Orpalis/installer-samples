@@ -1,4 +1,4 @@
-﻿Imports GdPicture14
+Imports GdPicture14
 
 Public Class Form1
 
@@ -11,7 +11,7 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim licenseManager As LicenseManager = New LicenseManager
-        licenseManager.RegisterKEY("XXX") 'Please replace XXX by a valid demo or commercial key.
+        licenseManager.RegisterKEY("") ' Empty string starts a trial session of the product.
         _gdPictureImaging = New GdPictureImaging
         _gdPictureSegmenter = New GdPictureSegmenter
         _document = New Document(_gdPictureImaging)

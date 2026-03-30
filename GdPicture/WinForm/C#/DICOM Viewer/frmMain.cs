@@ -58,7 +58,7 @@ namespace GdPicture_DICOM_Viewer
         public void frmMain_Load(System.Object sender, System.EventArgs e)
         {
             LicenseManager licenseManager = new LicenseManager(); //Go to http://www.gdpicture.com/download-gdpicture/ to get a 1 month trial key unlocking all features of the toolkit.
-            licenseManager.RegisterKEY("XXXX"); //Please, replace XXXX by a valid demo or commercial license key.
+            licenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
             SplitContainer1.SplitterDistance = 620;
             _timer = new Timer();
             //If you need to set a different animation speed, this is the value you want to change (in milliseconds)

@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <UseWinForms>true</UseWinForms>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net462</TargetFramework>
     <RootNamespace>barcode_write</RootNamespace>

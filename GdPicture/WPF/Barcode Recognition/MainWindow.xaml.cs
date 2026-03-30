@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -52,7 +52,7 @@ namespace Csharp_Barcode_Recognition.WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LicenseManager oLicenceManager = new LicenseManager(); //Go to http://evaluation-gdpicture.com to get a 1 month trial key unlocking all features of the toolkit.
-            oLicenceManager.RegisterKEY("XXXX");//Please, replace XXXX by a valid demo or commercial license key. 
+            oLicenceManager.RegisterKEY("");// Empty string starts a trial session of the product.
         }
 
         private void renderPdfPage(int pageNo)

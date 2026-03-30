@@ -37,7 +37,7 @@ Public Class frmMain
 
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim oLicenseManager As New GdPicture14.LicenseManager() 'Go to http://www.gdpicture.com/download-gdpicture/ to get a 1 month trial key unlocking all features of the toolkit.
-        oLicenseManager.RegisterKEY("XXXX") 'Please, replace XXXX by a valid demo or commercial license key.
+        oLicenseManager.RegisterKEY("") ' Empty string starts a trial session of the product.
         SplitContainer1.SplitterDistance = 620
         'If you need to set a different animation speed, this is the value you want to change (in milliseconds)
         'm_timer.Interval = 1000

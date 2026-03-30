@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,7 +34,7 @@ namespace Csharp_MICR.WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LicenseManager oLicenseManager = new LicenseManager(); // Go to http://evaluation-gdpicture.com to get a 1 month trial key unlocking all features of the toolkit.
-            oLicenseManager.RegisterKEY("XXXX"); // Please, replace XXXX by a valid demo or commercial license key. 
+            oLicenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
             gdViewer1.ZoomMode = ViewerZoomMode.ZoomModeFitToViewer;
             cmbWhiteList.SelectedIndex = 0;
             cmbContext.SelectedIndex = 1;

@@ -31,14 +31,14 @@ namespace async_scanning
         public void Form1_Load(System.Object eventSender, System.EventArgs eventArgs)
         {
             GdPicture14.LicenseManager oLicenseManager = new GdPicture14.LicenseManager();
-            oLicenseManager.RegisterKEY("XXX"); //Please, replace XXX by a valid demo or commercial license key.
+            oLicenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
 
             txtWorkingDir.Text = Application.StartupPath;
             _backGroundWorker.WorkerReportsProgress = true;
             _backGroundWorker.WorkerSupportsCancellation = false;
 
             // You can set the language of the Twain UI here by selecting the language and the country you prefer.
-            //_gdPictureImaging.TwainSetApplicationInfo(14, 0, TwainLanguage.TWLG_GER, TwainCountry.TWCY_GERMANY, oLicenseManager.GetVersion().ToString(), "Orpalis", "GdPicture", "GdPicture.NET");
+            //_gdPictureImaging.TwainSetApplicationInfo(14, 0, TwainLanguage.TWLG_GER, TwainCountry.TWCY_GERMANY, GdPicture14.LicenseManager.GetVersion().ToString(), "Orpalis", "GdPicture", "GdPicture.NET");
         }
 
 

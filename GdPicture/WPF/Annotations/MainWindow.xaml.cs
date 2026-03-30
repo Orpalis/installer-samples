@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -22,7 +22,7 @@ namespace Csharp_Annotations.WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LicenseManager oLicenceManager = new LicenseManager(); //Go to http://evaluation-gdpicture.com to get a 1 month trial key unlocking all features of the toolkit.
-            oLicenceManager.RegisterKEY("XXXX");//Please, replace XXXX by a valid demo or commercial license key. 
+            oLicenceManager.RegisterKEY("");// Empty string starts a trial session of the product.
             BookmarksTree1.GdViewer = GdViewer1;
             annotationEditor1.InitFromAnnotationManager(GdViewer1.GetAnnotationManager());
             AlignmentMC.IsChecked = true;

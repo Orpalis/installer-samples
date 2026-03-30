@@ -1,4 +1,4 @@
-﻿using GdPicture14;
+using GdPicture14;
 using System;
 using System.ComponentModel;
 using System.Threading;
@@ -24,7 +24,7 @@ namespace Csharp_async_Twain_Scanning.WPF
             InitializeComponent();
 
             GdPicture14.LicenseManager oLicenseManager = new GdPicture14.LicenseManager();
-            oLicenseManager.RegisterKEY("XXX"); //Please, replace XXX by a valid demo or commercial license key.
+            oLicenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
 
             m_backGroundWorker.DoWork += new DoWorkEventHandler(m_backGroundWorker_DoWork);
             m_backGroundWorker.ProgressChanged += new ProgressChangedEventHandler(m_backGroundWorker_ProgressChanged);

@@ -1,4 +1,4 @@
-﻿Imports GdPicture14
+Imports GdPicture14
 
 Public Class Form1
 
@@ -31,7 +31,7 @@ Public Class Form1
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim oLicenseManager As New GdPicture14.LicenseManager() 'Go to http://www.gdpicture.com/download-gdpicture/ to get a 1 month trial key unlocking all features of the toolkit.
-        oLicenseManager.RegisterKEY("XXXX") 'Please, replace XXXX by a valid demo or commercial license key.
+        oLicenseManager.RegisterKEY("") ' Empty string starts a trial session of the product.
         'create papers collection
         Dim paper As New Paper
         paper._PaperName = "Letter"

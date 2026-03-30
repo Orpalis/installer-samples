@@ -1,4 +1,4 @@
-﻿Option Strict On
+Option Strict On
 Option Explicit On
 
 
@@ -16,7 +16,7 @@ Public Class Form1
             MessageBox.Show("Warning: The application is running in 64-bit mode. To be able to handle 32-bit TWAIN drivers you will have to target it to 32-bit mode.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
         Dim oLicenseManager As New GdPicture14.LicenseManager() 'Go to http://www.gdpicture.com/download-gdpicture/ to get a 1 month trial key unlocking all features of the toolkit.
-        oLicenseManager.RegisterKEY("XXX") 'Please, replace XXX by a valid demo or commercial license key. 
+        oLicenseManager.RegisterKEY("") ' Empty string starts a trial session of the product.
 
         m_BackGroundWorker.WorkerReportsProgress = True
         m_BackGroundWorker.WorkerSupportsCancellation = False ' I suggest this

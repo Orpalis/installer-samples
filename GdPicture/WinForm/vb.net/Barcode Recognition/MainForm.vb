@@ -12,7 +12,7 @@ Public Class MainForm
 
     Private Sub Form1_Load(ByVal eventSender As Object, ByVal eventArgs As EventArgs) Handles MyBase.Load
         Dim oLicenseManager As New GdPicture14.LicenseManager()
-        oLicenseManager.RegisterKEY("XXXX") 'Please, replace XXXX by a valid demo or commercial license key.
+        oLicenseManager.RegisterKEY("") ' Empty string starts a trial session of the product.
         pan1Dtypes.Visible = False
         Label7.Visible = False
     End Sub

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +29,7 @@ namespace Csharp_Display_From_URL.WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LicenseManager oLicenseManager = new LicenseManager(); // Go to http://evaluation-gdpicture.com to get a 1 month trial key unlocking all features of the toolkit.
-            oLicenseManager.RegisterKEY("XXXX"); // Please, replace XXXX by a valid demo or commercial license key. 
+            oLicenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
             GdViewer1.ZoomMode = ViewerZoomMode.ZoomModeFitToViewer;
         }
 

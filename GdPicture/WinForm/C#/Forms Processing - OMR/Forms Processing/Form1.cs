@@ -58,7 +58,7 @@ namespace Csharp_Forms_Processing
 		public void Form1_Load(System.Object sender, System.EventArgs e)
 		{
             LicenseManager oLicenseManager = new LicenseManager(); //Go to http://www.gdpicture.com/download-gdpicture/ to get a 1 month trial key unlocking all features of the toolkit.
-            oLicenseManager.RegisterKEY("XXXX"); //Please, replace XXXX by a valid demo or commercial license key.
+            oLicenseManager.RegisterKEY(""); // Empty string starts a trial session of the product.
 			formViewer.ZoomMode = ViewerZoomMode.ZoomModeFitToViewer;
 			imagesViewer.ZoomMode = ViewerZoomMode.ZoomModeFitToViewer;
 		}

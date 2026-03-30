@@ -1,4 +1,4 @@
-﻿Option Strict On
+Option Strict On
 Option Explicit On
 
 Imports System.ComponentModel
@@ -30,7 +30,7 @@ Public Class frmMain
 
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         Dim oLicenceManager As New GdPicture14.LicenseManager()
-        oLicenceManager.RegisterKEY("XXXX") 'Please, replace XXXX by a valid demo or commercial license key.
+        oLicenceManager.RegisterKEY("") ' Empty string starts a trial session of the product.
 
         tcLeftPanel.Appearance = TabAppearance.FlatButtons
         tcLeftPanel.ItemSize = New Size(0, 1)
